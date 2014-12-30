@@ -1,0 +1,91 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+.article{
+    font-size: 24px;
+    margin-bottom: 10px;
+    background: none repeat scroll 0% 0% rgb(255,255,255);
+    border: 1px solid rgb(230,230,230);
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.article .article-title{
+    font-size: 34px;
+    font-family: "Courier New", courier, monospace;
+}
+
+.article .article-content{
+    font-size: 18px;
+
+}
+
+.article:hover{
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
+    border-color: #d6d6d6
+}
+
+
+
+.widget-area .widget {
+    background: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    padding: 15px
+}
+
+.widget-area .widget:hover {
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);
+    border-color: #d6d6d6
+}
+
+.widget-area .widget-title {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 10px
+}
+
+.widget-area .widget a:hover {
+    color: #ea4c89
+}
+
+.widget-area .widget ul li {
+    line-height: 30px;
+    margin-bottom: 4px
+}
+
+.widget-area .widget .nopadding {
+    margin: -16px;
+    background: #fff
+}
+
+.widget-area .widget .nopadding img {
+    display: block
+}
+
+.widget-area .widget .tagcloud a:hover {
+    background: #00adef;
+    color: #fff
+}
+
+.widget-area .widget .nav-tabs li {
+    margin: 0 10px -1px 0
+}
+
+.nav-tabs .active, .nav-tabs li:hover {
+    border-bottom-color: #EA4C89;
+    color: #EA4C89
+}
+
+.widget-area .widget .nav-tabs .active {
+    color: #EA4C89;
+    border-bottom-color: #EA4C89
+}
