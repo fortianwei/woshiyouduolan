@@ -1,6 +1,5 @@
 __author__ = 'tianwei'
 from tornado.web import RequestHandler
-from
 
 class BaseHandler(RequestHandler):
 
