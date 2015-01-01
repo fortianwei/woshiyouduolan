@@ -1,5 +1,3 @@
-__author__ = 'tianwei'
-
 
 class Article:
 

@@ -19,6 +19,9 @@ class Application(tornado.web.Application):
     def __init__(self, **overrides):
         handler = [
             url(r'/', handlers.WelcomeHandler,name='index'),
+            url(r'/post',handlers.PostHandler,name='post'),
+
+
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
             url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'})
 
@@ -27,7 +30,7 @@ class Application(tornado.web.Application):
         ]
 
         settings = {
-            'template_path':os.path.join(os.path.dirname(__file__),'static/html/')
+            'template_path':os.path.join(os.path.dirname(__file__), 'static/html/')
         }
 
         tornado.web.Application.__init__(self, handler, **settings)

@@ -13,21 +13,6 @@ class WelcomeHandler(BaseHandler):
         print 1111
         self.render('index.html')
 
-
-
-users = db.users
-
-user = {"name": "tianwei", "age": "33"}
-users.insert(user)
-
-
-# print users.find_one()
-
-# xx = users.find({"name":"tianwei"})
-xx = users.find()
-for x in xx:
-    print x
-print xx.count()
-# del xx["_id"]
-# yy = json.dumps(xx)
-# print yy
+class PostHandler(BaseHandler):
+    def get(self):
+        self.render('post.html')
