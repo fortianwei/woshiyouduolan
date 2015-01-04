@@ -23,7 +23,7 @@ class PostHandler(BaseHandler):
         content = self.get_body_argument('content', default='No content')
         time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         articles = self.db.articles
-
+        print  111
         article ={}
 
         print self.get_body_argument('title')
