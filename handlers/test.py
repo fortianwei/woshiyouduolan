@@ -31,3 +31,9 @@ aa.aaaa()
 aa.aaaab()
 Wori.aaaa()
 Wori.aaaab()
+
+from pymongo import Connection
+
+conn = Connection()
+db = conn.vs
+print db.articles.find_one()['content']
