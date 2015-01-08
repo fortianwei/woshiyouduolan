@@ -18,9 +18,9 @@ MONGO_SERVER = "localhost"
 class Application(tornado.web.Application):
     def __init__(self, **overrides):
         handler = [
-            url(r'/', handlers.WelcomeHandler,name='index'),
-            url(r'/post',handlers.PostHandler,name='post'),
-
+            url(r'/', handlers.WelcomeHandler, name='index'),
+            url(r'/post', handlers.PostHandler, name='post'),
+            url(r'/article/([0-9]+)', handlers.ArticledHandler, name='article'),
 
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
             url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'})

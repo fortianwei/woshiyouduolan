@@ -42,7 +42,7 @@
     {% for article in articles %}
     <article id="post-2753" class="article"
             >
-        <h2 class="article-title"><a href="http://caibaojian.com/bootstrap-media.html" rel="bookmark">{{article['title']}}</a></h2>
+        <h2 class="article-title"><a href="/article/{{article['id']}}" rel="bookmark">{{article['title']}}</a></h2>
 
         <div class="entry-meta">
                     <span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published"
@@ -56,7 +56,7 @@
             <p>{{article["content"][1:100]}}[…]</p>
 
         </div>
-        <a class="btn btn-info read-more" rel="nofollow" href="http://caibaojian.com/bootstrap-media.html"
+        <a class="btn btn-info read-more" rel="nofollow" href="/article/{{article['id']}}"
            title="Bootstrap CSS3媒体查询断点">阅读全文</a>
         <!-- .entry-content -->
     </article>
