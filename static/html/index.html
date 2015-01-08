@@ -57,7 +57,7 @@
 
         </div>
         <a class="btn btn-info read-more" rel="nofollow" href="/article/{{article['id']}}"
-           title="Bootstrap CSS3媒体查询断点">阅读全文</a>
+           title="{{article['title']}}">阅读全文</a>
         <!-- .entry-content -->
     </article>
     <!-- #post-## -->
@@ -70,21 +70,11 @@
 <div id="secondary" class="widget-area col-md-4" role="complementary">
     <aside id="recent-posts-3" class="widget widget_recent_entries"><h3 class="widget-title">最新文章</h3>
         <ul>
+            {% for article in articles2 %}
             <li>
-                <a href="http://caibaojian.com/calc.html">CSS3 calc() 会计算的属性</a>
+                <a href="/article/{{article['id']}}">{{article['title']}}</a>
             </li>
-            <li>
-                <a href="http://caibaojian.com/aliyun.html">搬家阿里云记录</a>
-            </li>
-            <li>
-                <a href="http://caibaojian.com/html5-video.html">HTML5视频及其兼容实践</a>
-            </li>
-            <li>
-                <a href="http://caibaojian.com/something-about-blog.html">回顾总结前端博客的一些事</a>
-            </li>
-            <li>
-                <a href="http://caibaojian.com/blink-screenhots.html">换主题，博客恢复更新</a>
-            </li>
+            {% end %}
         </ul>
     </aside>
     <aside class="widget">

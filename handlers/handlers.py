@@ -12,7 +12,8 @@ class WelcomeHandler(BaseHandler):
     def get(self):
         collection_articles = self.db.articles
         articles = collection_articles.find()
-        self.render('index.html', articles=articles)
+        articles2 = collection_articles.find()
+        self.render('index.html', articles=articles, articles2=articles2)
 
 
 class PostHandler(BaseHandler):
