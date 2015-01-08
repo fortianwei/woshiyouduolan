@@ -39,26 +39,21 @@
 <div class="container">
 <div class="row">
 <articles id="articles" class="col-md-8 ">
+    {% for article in articles %}
     <article id="post-2753" class="article"
             >
-        <h2 class="article-title"><a href="http://caibaojian.com/bootstrap-media.html" rel="bookmark">Bootstrap
-            CSS3媒体查询断点</a></h2>
+        <h2 class="article-title"><a href="http://caibaojian.com/bootstrap-media.html" rel="bookmark">{{article['title']}}</a></h2>
 
         <div class="entry-meta">
                     <span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published"
                                                                                  datetime="2014-11-05T09:38:43+00:00">
-                        2014-11-05
-                    </time><time class="updated" datetime="2014-11-05T09:39:44+00:00">2014-11-05</time></span><i
-                class="space">•</i><span class="cat-links muted"><a href="http://caibaojian.com/c/code"
-                                                                    rel="category tag">前端代码</a></span><i
-                class="space">•</i><span class="muted">283Views </span></div>
+                        {{article["time"]}}
+                    </time></span></div>
         <!-- .entry-meta -->
         <!-- .entry-header -->
 
         <div class="article-content">
-            <p>/*================================================== = Bootstrap 3 Media Queries =
-                =============================================================================================================================
-                […]</p>
+            <p>{{article["content"][1:100]}}[…]</p>
 
         </div>
         <a class="btn btn-info read-more" rel="nofollow" href="http://caibaojian.com/bootstrap-media.html"
@@ -66,66 +61,7 @@
         <!-- .entry-content -->
     </article>
     <!-- #post-## -->
-
-    <article id="post-2512"
-             class="article  ">
-        <h2 class="entry-title"><a href="http://caibaojian.com/bootstrap-modal.html" rel="bookmark">Bootstrap
-            Modal遮罩弹出层</a></h2>
-
-        <div class="entry-meta">
-                    <span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published"
-                                                                                 datetime="2014-08-27T05:13:01+00:00">
-                        2014-08-27
-                    </time><time class="updated" datetime="2014-08-27T05:15:27+00:00">2014-08-27</time></span><i
-                class="space">•</i><span class="cat-links muted"><a href="http://caibaojian.com/c/code"
-                                                                    rel="category tag">前端代码</a></span><i
-                class="space">•</i><span class="muted">2,953Views </span></div>
-        <!-- .entry-meta -->
-        <!-- .entry-header -->
-
-        <div class="article-content">
-            <p>==============================================================================，Bootstrap那个太啰嗦了。 &lt;div
-                class=”theme-popover”&gt; &lt;div
-                class=”theme-poptit”&gt; &amp;lt […]</p>
-
-            <a class="btn btn-default read-more" rel="nofollow" href="http://caibaojian.com/bootstrap-modal.html"
-               title="Bootstrap Modal遮罩弹出层">阅读全文</a>
-        </div>
-        <!-- .entry-content -->
-    </article>
-    <!-- #post-## -->
-
-    <article id="post-1611"
-             class="article ">
-        <header class="entry-header">
-            <h2 class="entry-title"><a href="http://caibaojian.com/bootstrap3-grid.html"
-                                       rel="bookmark">Bootstrap3的栅格化样式</a>
-            </h2>
-
-            <div class="entry-meta">
-                    <span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published"
-                                                                                 datetime="2014-04-15T09:36:31+00:00">
-                        2014-04-15
-                    </time><time class="updated" datetime="2014-05-19T08:14:43+00:00">2014-05-19</time></span><i
-                    class="space">•</i><span class="cat-links muted"><a href="http://caibaojian.com/c/front"
-                                                                        rel="category tag">前端开发</a></span><i
-                    class="space">•</i><span class="muted">2,649Views </span></div>
-            <!-- .entry-meta -->
-        </header>
-        <!-- .entry-header -->
-
-        <div class="entry-content">
-            <p>Bootstrap2.3的时候还支持IE7，到了3之后，就跟IE7以下说拜拜了。前面已经发过一篇：Bootstrap 3.0的扁平化来了，有兴趣的童鞋可以了解Bootstrap3有哪些特色。
-                Bootstrap3依旧是支持IE8的，只是同时 […]</p>
-
-            <a class="btn btn-default read-more" rel="nofollow" href="http://caibaojian.com/bootstrap3-grid.html"
-               title="Bootstrap3的栅格化样式">阅读全文</a>
-        </div>
-        <!-- .entry-content -->
-    </article>
-    <!-- #post-## -->
-
-
+    {% end %}
 </articles>
 
 <!-- #main -->

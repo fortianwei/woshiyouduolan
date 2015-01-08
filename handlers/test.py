@@ -36,4 +36,8 @@ from pymongo import Connection
 
 conn = Connection()
 db = conn.vs
-print db.articles.find_one()['content']
+count = 1
+for article in db.articles.find():
+    db.articles.update(article,{"$set":{"id":count}})
+    count += 1
+

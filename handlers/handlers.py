@@ -10,8 +10,9 @@ class BaseHandler(RequestHandler):
 
 class WelcomeHandler(BaseHandler):
     def get(self):
-        print 1111
-        self.render('index.html')
+        collection_articles = self.db.articles
+        articles = collection_articles.find()
+        self.render('index.html', articles=articles)
 
 
 class PostHandler(BaseHandler):
