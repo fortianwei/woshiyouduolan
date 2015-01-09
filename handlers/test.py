@@ -40,3 +40,56 @@ count = 1
 article = db.articles.find_one({'id': 1})
 print article
 
+def xx():
+        import mistune
+        from pygments import highlight
+        from pygments.lexers import get_lexer_by_name
+        from pygments.formatters.html import HtmlFormatter
+
+        class MyRenderer(mistune.Renderer):
+            def block_code(self, code, lang='python'):
+                print 11122222222222
+                if not lang:
+                    return '\n<pre><code>%s</code></pre>\n' % mistune.escape(code)
+                lexer = get_lexer_by_name(lang, stripall=True)
+                formatter = HtmlFormatter()
+                return highlight(code, lexer, formatter)
+
+
+
+
+        article = {}
+        article['content'] = 'I am using **markdown** <pre><code>print 123</code></pre>'
+        md = mistune.Markdown(renderer=MyRenderer())
+        print article['content']
+        article['content'] = md.render(article['content'])
+        print article['content']
+        code = 'wocao***dd** <pre><code>print "Hello World"</code></pre>'
+        lexer = get_lexer_by_name('python', stripall=True)
+        print highlight(code, lexer, HtmlFormatter())
+
+        import markdown
+        ret = markdown.markdown(code, ['codehilite'])
+        print ret
+
+
+import mistune
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters.html import HtmlFormatter
+
+
+class MyRenderer(mistune.Renderer):
+    def block_code(self, code, lang):
+        print "ccccccccccc"
+        if not lang:
+            return '\n<pre><code>%s</code></pre>\n' % \
+                mistune.escape(code)
+        lexer = get_lexer_by_name(lang, stripall=True)
+        formatter = HtmlFormatter()
+        return highlight(code, lexer, formatter)
+
+renderer = MyRenderer()
+md = mistune.Markdown(renderer=renderer)
+print(md.render(r'Some Markdown text.'
+                r'    print 123'))
