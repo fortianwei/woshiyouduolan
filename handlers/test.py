@@ -93,3 +93,11 @@ renderer = MyRenderer()
 md = mistune.Markdown(renderer=renderer)
 print(md.render(r'Some Markdown text.'
                 r'    print 123'))
+
+import markdown
+ss = markdown.markdown(r"    print 111",extensions=['markdown.extensions.codehilite'])
+print ss
+
+import markdown2
+bb = markdown2.markdown("<pre>print 111</pre>", extras=[ 'fenced-code-blocks'])
+print bb

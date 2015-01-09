@@ -35,20 +35,13 @@ class PostHandler(BaseHandler):
 
 class ArticledHandler(BaseHandler):
     def get(self, article_id):
-        import mistune
-        from pygments import highlight
-        from pygments.lexers import get_lexer_by_name
-        from pygments.formatters.html import HtmlFormatter
-
-
         print article_id
 
-        lexer = get_lexer_by_name('python', stripall=True)
-        formatter = HtmlFormatter()
 
         article = self.db.articles.find_one({'id': int(article_id)})
-        md = mistune.Markdown()
         print article['content']
-        article['content'] = highlight(article['content'], lexer, formatter)
+        # article['content'] = article['content'].replace('<pre>', '\n    ')
+        import markdown
+        article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
         print article['content']
         self.render('article.html',article=article)
