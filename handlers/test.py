@@ -5,8 +5,8 @@ db = conn.vs
 count = 1
 article = db.articles.find_one({'id': 1})
 # db.ids.insert({'tablename': 'articles', 'id': 6})
-idd = db.ids.find_and_modify(query={'tablename:': 'articles'}, update={"$inc": {"id": 1}})
-print idd
+idd = db.ids.find_and_modify(query={'tablename': 'articles'}, update={"$inc": {"id": -1}}, new=True)
+print idd["id"]
 # print article
 #
 # def xx():
