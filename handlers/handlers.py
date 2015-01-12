@@ -26,7 +26,9 @@ class PostHandler(BaseHandler):
         time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         articles = self.db.articles
         article = {'title': title, 'content': content, 'time': time}
-
+        id = self.db.ids.find_and_modify({'tablename:': "articles"}, update={"$inc": {"id": 1}}, new=True)
+        article['id'] = id
+        print "new id:"+id
         articles.insert(article)
         print self.get_body_argument('title')
         print self.get_body_argument('content')
