@@ -34,14 +34,17 @@ class PostHandler(BaseHandler):
 
 
 class ArticledHandler(BaseHandler):
-    def get(self, article_id):
-        print article_id
-
+    def get(self, operation, article_id):
+        print operation, article_id
 
         article = self.db.articles.find_one({'id': int(article_id)})
-        print article['content']
-        # article['content'] = article['content'].replace('<pre>', '\n    ')
-        import markdown
-        article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
-        print article['content']
-        self.render('article.html',article=article)
+        if operation is None:
+            print article['content']
+            # article['content'] = article['content'].replace('<pre>', '\n    ')
+            import markdown
+            article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
+            print article['content']
+            self.render('article.html', article=article)
+
+        if operation == 'edit':
+            self.render('edit.html', article=article)
