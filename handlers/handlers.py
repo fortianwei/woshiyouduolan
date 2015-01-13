@@ -20,16 +20,23 @@ class PostHandler(BaseHandler):
     def get(self):
         self.render('post.html')
 
-    def post(self, *args, **kwargs):
+    def post(self, article_id):
+        print 'article_id:', article_id
+
         title = self.get_body_argument('title', default='No title')
         content = self.get_body_argument('content', default='No content')
         time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         articles = self.db.articles
         article = {'title': title, 'content': content, 'time': time}
-        ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
-        article['id'] = ret['id']
-        print "new id:", article['id']
+
+        article['id'] = article_id
+        if article_id is None:
+            ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
+            article['id'] = ret['id']
+            print "new id:", article['id']
+
         articles.insert(article)
+        articles.update({'id': article['id']}, article, True)
         print self.get_body_argument('title')
         print self.get_body_argument('content')
         print time
@@ -48,5 +55,5 @@ class ArticledHandler(BaseHandler):
             print article['content']
             self.render('article.html', article=article)
 
-        if operation == 'edit':
+        if operation == '/edit':
             self.render('edit.html', article=article)
