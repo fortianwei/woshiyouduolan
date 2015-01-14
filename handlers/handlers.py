@@ -17,7 +17,7 @@ class WelcomeHandler(BaseHandler):
 
 
 class PostHandler(BaseHandler):
-    def get(self):
+    def get(self, article_id):
         self.render('post.html')
 
     def post(self, article_id):
@@ -35,7 +35,6 @@ class PostHandler(BaseHandler):
             article['id'] = ret['id']
             print "new id:", article['id']
 
-        articles.insert(article)
         articles.update({'id': article['id']}, article, True)
         print self.get_body_argument('title')
         print self.get_body_argument('content')
@@ -46,7 +45,7 @@ class ArticledHandler(BaseHandler):
     def get(self, operation, article_id):
         print operation, article_id
 
-        article = self.db.articles.find_one({'id': int(article_id)})
+        article = self.db.articles.find_one({'id': int(float(article_id))})
         if operation is None:
             print article['content']
             # article['content'] = article['content'].replace('<pre>', '\n    ')
