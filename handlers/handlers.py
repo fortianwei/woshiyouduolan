@@ -1,5 +1,6 @@
 from tornado.web import RequestHandler
 from datetime import datetime
+import pymongo
 
 class BaseHandler(RequestHandler):
 
@@ -11,8 +12,8 @@ class BaseHandler(RequestHandler):
 class WelcomeHandler(BaseHandler):
     def get(self):
         collection_articles = self.db.articles
-        articles = collection_articles.find()
-        articles2 = collection_articles.find()
+        articles = collection_articles.find().sort('time', pymongo.DESCENDING)
+        articles2 = collection_articles.find().sort('time', pymongo.DESCENDING)
         self.render('index.html', articles=articles, articles2=articles2)
 
 
@@ -36,6 +37,7 @@ class PostHandler(BaseHandler):
             print "new id:", article['id']
 
         articles.update({'id': article['id']}, article, True)
+        self.redirect('/')
         print self.get_body_argument('title')
         print self.get_body_argument('content')
         print time
