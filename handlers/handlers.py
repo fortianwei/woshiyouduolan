@@ -67,8 +67,10 @@ class ArticledHandler(BaseHandler):
             # article['content'] = article['content'].replace('<pre>', '\n    ')
             # article['content'] = article['content'].replace('</pre>', '')
             import markdown
-            article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
-            # print article['content']
+            import markdown2
+            # article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
+            article['content'] = markdown2.markdown(article['content'], extras=['fenced-code-blocks'])
+            print article['content']
 
             self.render('article.html', article=article)
 
