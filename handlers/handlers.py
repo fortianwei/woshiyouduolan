@@ -41,7 +41,7 @@ class PostHandler(BaseHandler):
         articles = self.db.articles
         article = {'title': title, 'content': content, 'time': time}
 
-        article['id'] = article_id
+        article['id'] = int(float(article_id))
         if article_id is None:
             ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
             article['id'] = ret['id']
@@ -59,6 +59,7 @@ class ArticledHandler(BaseHandler):
         print operation, article_id
 
         article = self.db.articles.find_one({'id': int(float(article_id))})
+        article['id'] = int(float(article_id))
         if not article:
             raise tornado.web.HTTPError(404)
         if operation is None:
@@ -67,7 +68,8 @@ class ArticledHandler(BaseHandler):
             # article['content'] = article['content'].replace('</pre>', '')
             import markdown
             article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
-            print article['content']
+            # print article['content']
+
             self.render('article.html', article=article)
 
         if operation == '/edit':
