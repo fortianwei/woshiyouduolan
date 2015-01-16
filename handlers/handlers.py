@@ -1,6 +1,7 @@
+import pymongo
+import tornado.web
 from tornado.web import RequestHandler
 from datetime import datetime
-import pymongo
 
 class BaseHandler(RequestHandler):
 
@@ -48,6 +49,8 @@ class ArticledHandler(BaseHandler):
         print operation, article_id
 
         article = self.db.articles.find_one({'id': int(float(article_id))})
+        if not article:
+            raise tornado.web.HTTPError(404)
         if operation is None:
             print article['content']
             # article['content'] = article['content'].replace('<pre>', '\n    ')
