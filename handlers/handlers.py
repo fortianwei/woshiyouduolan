@@ -13,12 +13,19 @@ class BaseHandler(RequestHandler):
         if status_code == 404:
             self.render('404.html')
 
+
 class WelcomeHandler(BaseHandler):
     def get(self):
         collection_articles = self.db.articles
         articles = collection_articles.find().sort('time', pymongo.DESCENDING)
         articles2 = collection_articles.find().sort('time', pymongo.DESCENDING)
         self.render('index.html', articles=articles, articles2=articles2)
+
+
+class FileNotFoundHandler(BaseHandler):
+    def get(self):
+        self.render('404.html')
+
 
 
 class PostHandler(BaseHandler):
@@ -57,6 +64,7 @@ class ArticledHandler(BaseHandler):
         if operation is None:
             print article['content']
             # article['content'] = article['content'].replace('<pre>', '\n    ')
+            # article['content'] = article['content'].replace('</pre>', '')
             import markdown
             article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
             print article['content']

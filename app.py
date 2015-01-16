@@ -24,6 +24,7 @@ class Application(tornado.web.Application):
 
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
             url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'}),
+            url(r'.*', handlers.FileNotFoundHandler, name='404')
 
 
         ]
