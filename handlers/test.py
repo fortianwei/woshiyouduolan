@@ -1,12 +1,11 @@
 from pymongo import Connection
 
-conn = Connection()
-db = conn.vs
-count = 1
-article = db.articles.find_one({'id': 1})
-# db.ids.insert({'tablename': 'articles', 'id': 6})
-idd = db.ids.find_and_modify(query={'tablename': 'articles'}, update={"$inc": {"id": -1}}, new=True)
-print idd["id"]
+# conn = Connection()
+# db = conn.vs
+# count = 1
+# article = db.articles.find_one({'id': 1})
+# idd = db.ids.find_and_modify(query={'tablename': 'articles'}, update={"$set": {"id": 10}}, new=True)
+# print idd["id"]
 # print article
 #
 # def xx():
@@ -42,30 +41,13 @@ print idd["id"]
 #         print ret
 #
 #
-import mistune
-from pygments import highlight
-from pygments.lexers import get_lexer_by_name
-from pygments.formatters.html import HtmlFormatter
 
 
-class MyRenderer(mistune.Renderer):
-    def block_code(self, code, lang):
-        print "ccccccccccc"
-        if not lang:
-            return '\n<pre><code>%s</code></pre>\n' % \
-                mistune.escape(code)
-        lexer = get_lexer_by_name(lang, stripall=True)
-        formatter = HtmlFormatter()
-        return highlight(code, lexer, formatter)
-
-renderer = MyRenderer()
-md = mistune.Markdown(renderer=renderer)
-print(md.render(r'\n    print 123'))
-
-import markdown
-ss = markdown.markdown(r"    print 111",extensions=['markdown.extensions.codehilite'])
-print ss
-
-import markdown2
-bb = markdown2.markdown("```python\nprint 111\n```", extras=['fenced-code-blocks'])
-print bb
+#
+# import markdown
+# ss = markdown.markdown(r"```python\nprint 111\n```",extensions=['markdown.extensions.codehilite'])
+# print ss
+#
+# import markdown2
+# bb = markdown2.markdown("```python\nprint 111\n```", extras=['fenced-code-blocks'])
+# print bb

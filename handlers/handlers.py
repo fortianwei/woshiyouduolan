@@ -41,11 +41,13 @@ class PostHandler(BaseHandler):
         articles = self.db.articles
         article = {'title': title, 'content': content, 'time': time}
 
-        article['id'] = int(float(article_id))
+
         if article_id is None:
             ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
             article['id'] = ret['id']
             print "new id:", article['id']
+        else:
+            article['id'] = int(float(article_id))
 
         articles.update({'id': article['id']}, article, True)
         self.redirect('/')
@@ -59,9 +61,12 @@ class ArticledHandler(BaseHandler):
         print operation, article_id
 
         article = self.db.articles.find_one({'id': int(float(article_id))})
-        article['id'] = int(float(article_id))
+
         if not article:
             raise tornado.web.HTTPError(404)
+        else:
+            article['id'] = int(float(article_id))
+
         if operation is None:
             print article['content']
             # article['content'] = article['content'].replace('<pre>', '\n    ')
