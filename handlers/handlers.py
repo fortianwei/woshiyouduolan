@@ -9,6 +9,9 @@ class BaseHandler(RequestHandler):
     def db(self):
         return self.application.syncdb
 
+    def write_error(self, status_code, **kwargs):
+        if status_code == 404:
+            self.render('404.html')
 
 class WelcomeHandler(BaseHandler):
     def get(self):

@@ -23,8 +23,7 @@ class Application(tornado.web.Application):
             url(r'/article(/[a-z]+)?/([0-9]+\.?[0-9]*)', handlers.ArticledHandler, name='article'),
 
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
-            url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'})
-
+            url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'}),
 
 
         ]
