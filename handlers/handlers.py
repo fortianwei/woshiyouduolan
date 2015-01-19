@@ -43,19 +43,20 @@ class PostHandler(BaseHandler):
         content = self.get_body_argument('content', default='No content')
         time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         articles = self.db.articles
-        article = {'title': title, 'content': content, 'time': time}
+        article = {'title': title, 'content': content, 'time': time, 'modify_time': time}
 
+        set_data = {'title': article['title'], 'content': article['content'], 'modify_time': article['modify_time']}
 
         if article_id is None:
             ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
             article['id'] = ret['id']
+            article['time'] = time
             print "new id:", article['id']
         else:
             article['id'] = int(float(article_id))
-            del article['time']
-            article['modify_time'] = time
-
-        articles.update({'id': article['id']}, article, True)
+        set_data['id'] = article['id']
+        
+        articles.update({'id': article['id']}, {'$set': set_data}, True)
         self.redirect('/')
         print self.get_body_argument('title')
         print self.get_body_argument('content')

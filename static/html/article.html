@@ -12,7 +12,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div id="article">
-                <div id="article_title">{{article["title"]}}</div>
+                <div class="text-info" id="article_title">{{article["title"]}}</div>
+                <p></p>
+                <div class="text-info">发表时间：{{article["time"]}}</div>
+                {% if article.has_key("modify_time") %}
+                <div class="text-success">
+                    最后更新：{{article["modify_time"]}}
+                </div>
+                {% end %}
                 <div id="article_content">{{article["content"]}}</div>
             </div>
         </div>
