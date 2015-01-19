@@ -32,6 +32,10 @@ class PostHandler(BaseHandler):
     def get(self, article_id):
         self.render('post.html')
 
+    '''
+    /post:post a new article
+    /post/id : modify article with its id
+    '''
     def post(self, article_id):
         print 'article_id:', article_id
 
@@ -48,6 +52,8 @@ class PostHandler(BaseHandler):
             print "new id:", article['id']
         else:
             article['id'] = int(float(article_id))
+            del article['time']
+            article['modify_time'] = time
 
         articles.update({'id': article['id']}, article, True)
         self.redirect('/')
