@@ -1,44 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+{% extends "base.html" %}
+
+        {% block header %}
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/my.css" rel="stylesheet">
-</head>
-<body>
+        {% end %}
 
-
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
-
-    <div>
-        <div class="nav-divider"></div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Nav-Sample 1</a></li>
-            <li><a href="#">Nav-Sample 2</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Nav-Sample 3
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">javascript</a></li>
-                    <li><a href="#">EJB</a></li>
-                    <li><a href="#">Bootstrap</a></li>
-                </ul>
-            </li>
-            <li ><a href="#">编程语言</a></li>
-            <li ><a href="#">数据算法</a></li>
-            <li ><a href="#">网络方面</a></li>
-            <li ><a href="#">Linux</a></li>
-            <li ><a href="#">Android</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="container">
-<div class="row">
-<articles id="articles" class="col-md-8 ">
+{% block left8 %}
+<articles id="articles" >
     {% for article in articles %}
     <article id="post-2753" class="article"
             >
@@ -63,11 +31,10 @@
     <!-- #post-## -->
     {% end %}
 </articles>
-
+{% end %}
 <!-- #main -->
 <!-- #primary -->
-
-<div id="secondary" class="widget-area col-md-4" role="complementary">
+{% block right4 %}
     <aside id="recent-posts-3" class="widget widget_recent_entries"><h3 class="widget-title">最新文章</h3>
         <ul>
             {% for article in articles2 %}
@@ -214,13 +181,4 @@
             <a href="http://caibaojian.com/t/%e8%ae%be%e8%ae%a1%e5%85%83%e7%b4%a0" class="tag-link-162" title="4个话题"
                style="font-size: 8pt;">设计元素</a></div>
     </aside>
-</div>
-<!-- #secondary -->
-</div>
-</div>
-<!-- #content -->
-
-
-</body>
-
-</html>
+{% end %}
