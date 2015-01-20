@@ -50,7 +50,7 @@ class PostHandler(BaseHandler):
         if article_id is None:
             ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
             article['id'] = ret['id']
-            article['time'] = time
+            set_data['time'] = time
             print "new id:", article['id']
         else:
             article['id'] = int(float(article_id))
