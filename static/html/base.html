@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    {% block header %}{% end %}
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+
+    <div>
+        <div class="nav-divider"></div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Nav-Sample 1</a></li>
+            <li><a href="#">Nav-Sample 2</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Nav-Sample 3
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">EJB</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                </ul>
+            </li>
+            <li><a href="#">编程语言</a></li>
+            <li><a href="#">数据算法</a></li>
+            <li><a href="#">网络方面</a></li>
+            <li><a href="#">Linux</a></li>
+            <li><a href="#">Android</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div id="left-8" class="col-md-8 ">
+            {% block left8 %} {% end %}
+        </div>
+        <!-- #main -->
+        <!-- #primary -->
+
+        <div id="secondary" class="widget-area col-md-4" role="complementary">
+            {% block right4 %} {% end %}
+        </div>
+        <!-- #secondary -->
+    </div>
+</div>
+<!-- #content -->
+
+</body>
+
+</html>
