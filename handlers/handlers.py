@@ -55,7 +55,7 @@ class PostHandler(BaseHandler):
         else:
             article['id'] = int(float(article_id))
         set_data['id'] = article['id']
-        
+
         articles.update({'id': article['id']}, {'$set': set_data}, True)
         self.redirect('/')
         print self.get_body_argument('title')
