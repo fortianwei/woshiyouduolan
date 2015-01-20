@@ -1,3 +1,4 @@
+# run this file the first time to setup ids table
 from pymongo import Connection
 
 conn = Connection()
