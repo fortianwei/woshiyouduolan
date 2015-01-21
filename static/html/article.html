@@ -14,8 +14,9 @@
     <div class="article-time text-info">发表时间：{{article["time"]}}
     {% if article.has_key("modify_time") %}
         &nbsp;&nbsp;&nbsp;最后更新：{{article["modify_time"]}}
+        {% end %}
     </div>
-    {% end %}
+
     <div class="article_content">{{article["content"]}}</div>
 </div>
 {% end %}
