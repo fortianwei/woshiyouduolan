@@ -1,5 +1,5 @@
 body{
-    background-color: #eeeeee;
+    background-image: url("/static/image/background.png");
 }
 
 
@@ -38,6 +38,7 @@ body{
 }
 .article {
     font-size: 16px;
+    height: 350px;
     margin-bottom: 10px;
     background: none repeat scroll 0% 0% rgb(255, 255, 255);
     border: 3px solid rgb(230, 230, 230);
@@ -45,10 +46,40 @@ body{
     padding: 15px;
     position: relative;
 }
+.article-full{
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: none repeat scroll 0% 0% rgb(255, 255, 255);
+    border: 3px solid rgb(230, 230, 230);
+    padding: 15px;
+    position: relative;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
+.article-full .article-title {
+    font-size: 24px;
+    font-family: "Courier New", courier, monospace;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.article-full .article-time{
+    font-size: 12px;
+    font-family: "Helvetica Neue", courier, monospace;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.article-full .article_content{
+    padding-top: 20px;
+}
 
 .article .article-title {
     font-size: 24px;
     font-family: "Courier New", courier, monospace;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .article .article-content {
@@ -78,6 +109,9 @@ body{
     border-radius: 4px;
     padding: 3px;
     font-size: 12px;
+    -moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
 }
 
 .widget-area .widget:hover {
@@ -89,18 +123,26 @@ body{
     font-size: 15px;
     color: #666;
     font-weight: bold;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    margin-left: 12px;
+
 }
 
 .widget-area .widget a:hover {
     color: #ea4c89
 }
-
+.widget-area .widget ul{
+    padding-left: 15px;
+}
 .widget-area .widget ul li {
     line-height: 30px;
     margin-bottom: 4px;
     list-style-type: none;
+    border-bottom:1px solid rgb(238, 238, 238);
+    border-right: 2px;
+
 }
+
 
 .widget-area .widget a {
     font-size: 12px;

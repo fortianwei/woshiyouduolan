@@ -7,17 +7,16 @@
 {% autoescape None %}
 
 {% block left9 %}
-<div class="article">
-    <div class="text-info" id="article_title">{{article["title"]}}</div>
+<div class="article-full">
+    <div class="article-title" id="article_title">{{article["title"]}}</div>
     <p></p>
 
-    <div class="text-info">发表时间：{{article["time"]}}</div>
+    <div class="article-time text-info">发表时间：{{article["time"]}}
     {% if article.has_key("modify_time") %}
-    <div class="text-success">
-        最后更新：{{article["modify_time"]}}
+        &nbsp;&nbsp;&nbsp;最后更新：{{article["modify_time"]}}
     </div>
     {% end %}
-    <div id="article_content">{{article["content"]}}</div>
+    <div class="article_content">{{article["content"]}}</div>
 </div>
 {% end %}
 
