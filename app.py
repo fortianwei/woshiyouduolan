@@ -19,6 +19,7 @@ class Application(tornado.web.Application):
     def __init__(self, **overrides):
         handler = [
             url(r'/', handlers.WelcomeHandler, name='index'),
+            url(r'/index\.html', handlers.WelcomeHandler, name='index'),
             url(r'/post/?([0-9]+)?', handlers.PostHandler, name='post'),
             url(r'/article(/[a-z]+)?/([0-9]+\.?[0-9]*)', handlers.ArticledHandler, name='article'),
 

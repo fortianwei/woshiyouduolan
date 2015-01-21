@@ -3,23 +3,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/my.css" rel="stylesheet">
     {% block header %}{% end %}
 </head>
 <body>
-
 
 <nav class="center-block navbar navbar-default navbar-static-top" role="navigation">
 
     <div>
         <div class="nav-divider"></div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Nav-Sample 1</a></li>
+            <li class="active"><a href="/">主页</a></li>
             <li><a href="#">Nav-Sample 2</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <a href="#" class="dropdown-toggle" data-delay = "0" data-hover="dropdown" data-toggle="dropdown">
                     Nav-Sample 3
                     <b class="caret"></b>
                 </a>
@@ -53,6 +51,8 @@
     </div>
 </div>
 <!-- #content -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/static/js/bootstrap_dropdown_hover.js"></script>
 </body>
 

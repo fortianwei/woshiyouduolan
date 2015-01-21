@@ -1,6 +1,3 @@
-/**
- * Created by tianwei on 14-12-24.
- */
     /*
  * Project: Twitter Bootstrap Hover Dropdown
  * Author: Cameron Spear
