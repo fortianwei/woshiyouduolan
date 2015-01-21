@@ -1,3 +1,7 @@
+body{
+    background-color: #eeeeee;
+}
+
 
 
 /*重写bootsrap里面的相关参数*/
@@ -33,7 +37,7 @@
     word-wrap: break-word;
 }
 .article {
-    font-size: 24px;
+    font-size: 16px;
     margin-bottom: 10px;
     background: none repeat scroll 0% 0% rgb(255, 255, 255);
     border: 3px solid rgb(230, 230, 230);
@@ -72,7 +76,8 @@
     margin-bottom: 20px;
     border: 2px solid #e6e6e6;
     border-radius: 4px;
-    padding: 25px
+    padding: 3px;
+    font-size: 12px;
 }
 
 .widget-area .widget:hover {
@@ -81,10 +86,10 @@
 }
 
 .widget-area .widget-title {
-    font-size: 14px;
+    font-size: 15px;
     color: #666;
     font-weight: bold;
-    margin-bottom: 10px
+    margin-bottom: 15px
 }
 
 .widget-area .widget a:hover {
@@ -95,4 +100,8 @@
     line-height: 30px;
     margin-bottom: 4px;
     list-style-type: none;
+}
+
+.widget-area .widget a {
+    font-size: 12px;
 }
