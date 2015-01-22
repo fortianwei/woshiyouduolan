@@ -114,7 +114,7 @@ body{
     position: relative;
     margin-bottom: 20px;
     border: 2px solid #e6e6e6;
-    padding: 0px;
+    padding-left: 0px;
     border-radius: 15px;
     /*-moz-border-radius-bottomleft: 15px;      *//* Gecko browsers */
     /*-moz-border-radius-bottomright: 15px;      *//* Gecko browsers */
@@ -149,7 +149,7 @@ body{
 .widget .widget-content {
     margin-top: 0px;
     background: #fff;
-    padding: 3px;
+    padding: 13px 3px 13px 13px;
     font-size: 12px;
     margin-right: 0px;
     -moz-border-radius-bottomleft: 12px;      /* Gecko browsers */
@@ -158,6 +158,10 @@ body{
     -webkit-border-bottom-right-radius: 12px;   /* Webkit browsers */
     border-bottom-left-radius: 12px;             /* W3C syntax */
     border-bottom-right-radius: 12px;           /* W3C syntax */
+}
+
+.widget .widget-content p{
+    padding-left: 15px;
 }
 
 
@@ -172,7 +176,7 @@ body{
     border-bottom:1px solid rgb(238, 238, 238);
     border-right: 2px;
     text-align: left;
-    padding-left: 35px;
+    padding-left: 15px;
 }
 
 

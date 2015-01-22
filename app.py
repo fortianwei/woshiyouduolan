@@ -21,7 +21,7 @@ class Application(tornado.web.Application):
             url(r'/', handlers.WelcomeHandler, name='index'),
             url(r'/index\.html', handlers.WelcomeHandler, name='index'),
             url(r'/post/?([0-9]+)?', handlers.PostHandler, name='post'),
-            url(r'/article(/[a-z]+)?/([0-9]+\.?[0-9]*)', handlers.ArticledHandler, name='article'),
+            url(r'/article/([0-9]+\.?[0-9]*)(/[a-z]+)?', handlers.ArticledHandler, name='article'),
 
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
             url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'}),

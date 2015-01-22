@@ -64,8 +64,8 @@ class PostHandler(BaseHandler):
 
 
 class ArticledHandler(BaseHandler):
-    def get(self, operation, article_id):
-        print operation, article_id
+    def get(self, article_id, operation):
+        print article_id, operation
 
         article = self.db.articles.find_one({'id': int(float(article_id))})
 
