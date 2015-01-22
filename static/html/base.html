@@ -38,14 +38,31 @@
 
 <div class="container">
     <div class="row">
-        <div id="left-9" class="col-md-8 col-md-offset-1">
-            {% block left9 %} {% end %}
+        <div id="main_area" class="main_area col-md-8">
+                {% block left_block %} {% end %}
         </div>
         <!-- #main -->
         <!-- #primary -->
 
-        <div id="right-3" class="widget-area col-md-3" role="complementary">
-            {% block right3 %} {% end %}
+        <div id="widget-area" class="widget-area col-md-4" role="complementary">
+            <div class="col-md-10">
+                <div class="widget">
+                    <div class="widget-title">
+                        个人说明
+                    </div>
+                    <div class="widget-content">
+                        <p>毕业于天津大学</p>
+                        <p>学习学习学习学习下</p>
+                        <p>顶顶顶顶顶顶顶顶顶顶顶顶</p>
+                        <p>阿斯顿发送的发送地方</p>
+
+                    </div>
+                </div>
+
+                {% block right_block %} {% end %}
+            </div>
+
+
         </div>
         <!-- #secondary -->
     </div>
