@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url("/static/image/background.png");
 }
 
@@ -20,7 +20,7 @@ body{
     margin-bottom: 30px;
 }
 
-.navmenu ul{
+.navmenu ul {
     list-style-type: none;
     width: 60%;
     margin-top: 20px;
@@ -28,22 +28,61 @@ body{
     margin-right: 20%;
 }
 
-.navmenu ul li{
-    float:left;
+.navmenu ul li {
+    float: left;
     width: 12%;
     text-align: center;
     font-size: 20px;
     word-wrap: break-word;
 }
 
-.main_area{
+.login-box {
+    width:500px;
+    height:210px;
+    padding: 0 20px 20 20;
+    border: 1px solid #fff;
+    color: #000;
+    margin-top: 40px;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 0 15px #222;
+    background: -moz-linear-gradient(top, #fff, #efefef 8%);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f6f6f6), to(#f4f4f4));
+    font: 11px/1.5em 'Microsoft YaHei';
+    position: absolute;
+    left: 30%;
+    top: 20%;
+}
+
+.login-box h2{
+    height:45px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.login-box .left{
+    border-right: 1px solid #ccc;
+    height:100%;
+    padding-right: 20px;
+    border-top: 0px;
+    border-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.login-box .reg-btn{
+    margin-top: 10px;
+}
+
+.main_area {
     padding-left: 50px;
     padding-right: 0px;
 }
 
-.widget-area{
+.widget-area {
     padding-left: 0px;
 }
+
 .article {
     font-size: 16px;
     height: 350px;
@@ -54,32 +93,34 @@ body{
     padding: 15px;
     position: relative;
 }
-.article-full{
+
+.article-full {
     font-size: 16px;
     margin-bottom: 10px;
     background: none repeat scroll 0% 0% rgb(255, 255, 255);
     border: 3px solid rgb(230, 230, 230);
     padding: 35px;
     position: relative;
-    -moz-border-radius: 15px;      /* Gecko browsers */
-    -webkit-border-radius: 15px;   /* Webkit browsers */
-    border-radius:15px;            /* W3C syntax */
+    -moz-border-radius: 15px; /* Gecko browsers */
+    -webkit-border-radius: 15px; /* Webkit browsers */
+    border-radius: 15px; /* W3C syntax */
 }
+
 .article-full .article-title {
     font-size: 34px;
-    font-family: "Microsoft YaHei","微软雅黑",Helvetica,Tahoma,Arial,STXihei,"华文细黑",SimSun,"宋体",Heiti,"黑体",sans-serif;
+    font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, Arial, STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(238, 238, 238);
 }
 
-.article-full .article-time{
+.article-full .article-time {
     font-size: 12px;
     font-family: "Helvetica Neue", courier, monospace;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(238, 238, 238);
 }
 
-.article-full .article_content{
+.article-full .article_content {
     padding-top: 20px;
 }
 
@@ -126,7 +167,7 @@ body{
 }
 
 /*.widget-area .widget:hover {*/
-    /*box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);*/
+/*box-shadow: 2px 2px 8px rgba(0, 0, 0, .2);*/
 /*}*/
 
 .widget-area .widget .widget-title {
@@ -135,13 +176,13 @@ body{
     padding: 10px 15px 5px 15px;
     position: relative;
     margin-top: 0px;
-    margin-bottom: 0px ;
+    margin-bottom: 0px;
     font-size: 15px;
     text-align: left;
-    height:40px;
+    height: 40px;
     background-color: rgba(150, 150, 150, 0.3);
     border-bottom: 1px solid rgb(238, 238, 238);
-    font-family: "文泉驛微米黑" ,"Microsoft YaHei","微软雅黑",Helvetica,Tahoma,Arial,STXihei,"华文细黑",SimSun,"宋体",Heiti,"黑体",sans-serif;
+    font-family: "文泉驛微米黑", "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, Arial, STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
@@ -152,33 +193,32 @@ body{
     padding: 13px 3px 13px 13px;
     font-size: 12px;
     margin-right: 0px;
-    -moz-border-radius-bottomleft: 12px;      /* Gecko browsers */
-    -moz-border-radius-bottomright: 12px;      /* Gecko browsers */
-    -webkit-border-bottom-left-radius:12px;    /* Webkit browsers */
-    -webkit-border-bottom-right-radius: 12px;   /* Webkit browsers */
-    border-bottom-left-radius: 12px;             /* W3C syntax */
-    border-bottom-right-radius: 12px;           /* W3C syntax */
+    -moz-border-radius-bottomleft: 12px; /* Gecko browsers */
+    -moz-border-radius-bottomright: 12px; /* Gecko browsers */
+    -webkit-border-bottom-left-radius: 12px; /* Webkit browsers */
+    -webkit-border-bottom-right-radius: 12px; /* Webkit browsers */
+    border-bottom-left-radius: 12px; /* W3C syntax */
+    border-bottom-right-radius: 12px; /* W3C syntax */
 }
 
-.widget .widget-content p{
+.widget .widget-content p {
     padding-left: 15px;
 }
 
-
-.widget-area .widget ul{
+.widget-area .widget ul {
     padding-left: 0px;
     align-content: center;
 }
+
 .widget-area .widget ul li {
     line-height: 30px;
     margin-bottom: 4px;
     list-style-type: none;
-    border-bottom:1px solid rgb(238, 238, 238);
+    border-bottom: 1px solid rgb(238, 238, 238);
     border-right: 2px;
     text-align: left;
     padding-left: 15px;
 }
-
 
 .widget-area .widget a {
     font-size: 12px;
