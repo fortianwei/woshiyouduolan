@@ -36,6 +36,10 @@ body {
     word-wrap: break-word;
 }
 
+.navbar-nav li{
+    margin-right: 50px;
+}
+
 .login-box {
     width:500px;
     height:210px;

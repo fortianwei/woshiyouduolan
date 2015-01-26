@@ -3,6 +3,7 @@ import tornado.web
 from tornado.web import RequestHandler
 from datetime import datetime
 
+
 class BaseHandler(RequestHandler):
 
     @property
