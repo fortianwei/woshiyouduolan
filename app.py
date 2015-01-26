@@ -20,6 +20,7 @@ class Application(tornado.web.Application):
         handler = [
             url(r'/', handlers.WelcomeHandler, name='index'),
             url(r'/index\.html', handlers.WelcomeHandler, name='index'),
+            url(r'/login', handlers.LoginHandler, name='login'),
             url(r'/post/?([0-9]+)?', handlers.PostHandler, name='post'),
             url(r'/article/([0-9]+\.?[0-9]*)(/[a-z]+)?', handlers.ArticledHandler, name='article'),
 

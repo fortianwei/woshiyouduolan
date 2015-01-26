@@ -22,10 +22,17 @@ class WelcomeHandler(BaseHandler):
         self.render('index.html', articles=articles, articles2=articles2)
 
 
+class LoginHandler(BaseHandler):
+    def get(self):
+        self.render("login.html")
+
+    def post(self, *args, **kwargs):
+        pass
+
+
 class FileNotFoundHandler(BaseHandler):
     def get(self):
         self.render('404.html')
-
 
 
 class PostHandler(BaseHandler):
