@@ -32,7 +32,9 @@ class Application(tornado.web.Application):
         ]
 
         settings = {
-            'template_path':os.path.join(os.path.dirname(__file__), 'static/html/')
+            'template_path': os.path.join(os.path.dirname(__file__), 'static/html/'),
+            'login_url': '/login',
+            'cookie_secret': '&&*#@DFjjjs11f=3(((gd000d\dfasd@)'
         }
 
         tornado.web.Application.__init__(self, handler, **settings)

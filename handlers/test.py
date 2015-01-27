@@ -1,7 +1,14 @@
 from pymongo import Connection
-
-# conn = Connection()
-# db = conn.vs
+import hashlib
+import base64
+conn = Connection()
+db = conn.vs
+password = 'xxxx'
+hash = hashlib.md5()
+hash.update(password)
+value = hash.digest()
+db.users.insert({'username': 'tianwei', 'password': base64.encodestring(value).replace('\n', '')})
+#print base64.encodestring(value).replace('\n', '')
 # count = 1
 # article = db.articles.find_one({'id': 1})
 # idd = db.ids.find_and_modify(query={'tablename': 'articles'}, update={"$set": {"id": 10}}, new=True)

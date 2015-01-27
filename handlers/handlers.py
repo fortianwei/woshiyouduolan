@@ -14,8 +14,12 @@ class BaseHandler(RequestHandler):
         if status_code == 404:
             self.render('404.html')
 
+    def get_current_user(self):
+        return self.get_secure_cookie('user_id', 0)
+
 
 class WelcomeHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
         collection_articles = self.db.articles
         articles = collection_articles.find().sort('time', pymongo.DESCENDING)
