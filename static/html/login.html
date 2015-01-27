@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container login-box">
-    <div class="row">
+    <form class="row" action="/login" method="post" id="form">
             <section class="col-md-7 left">
                 <h2>登录</h2>
 
@@ -18,7 +18,7 @@
                 </p>
 
                 <p>
-                    <input type="text" name="password" placeholder="密码">
+                    <input type="password" name="password" placeholder="密码">
                 </p>
                  <section class="row">
                     <section class="col-md-8">
@@ -27,7 +27,7 @@
                         </label>
                     </section>
                      <section class="col-md-1">
-                         <input type="button" value="登录" class="btn btn-primary">
+                         <input type="submit" id='login-btn' value="登录" class="btn btn-primary">
                      </section>
                  </section>
             </section>
@@ -46,7 +46,7 @@
         </section>
 
 
-    </div>
+    </form>
 </div>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

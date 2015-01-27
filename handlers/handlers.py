@@ -2,7 +2,7 @@ import pymongo
 import tornado.web
 from tornado.web import RequestHandler
 from datetime import datetime
-
+import utils
 
 class BaseHandler(RequestHandler):
 
@@ -15,11 +15,12 @@ class BaseHandler(RequestHandler):
             self.render('404.html')
 
     def get_current_user(self):
-        return self.get_secure_cookie('user_id', 0)
+        print 'get_current_user ', self.get_secure_cookie('current_user')
+        return self.get_secure_cookie('current_user')
 
 
 class WelcomeHandler(BaseHandler):
-    @tornado.web.authenticated
+
     def get(self):
         collection_articles = self.db.articles
         articles = collection_articles.find().sort('time', pymongo.DESCENDING)
@@ -32,7 +33,18 @@ class LoginHandler(BaseHandler):
         self.render("login.html")
 
     def post(self, *args, **kwargs):
-        pass
+        username = self.get_argument('username')
+        password = self.get_argument('password')
+        password = utils.getBase64EncodedMD5String(password)
+        print username, password
+        user = self.db.users.find({'username': username,'password': password})
+        if user.count() == 1:
+            print 'Check user success.'
+            self.set_secure_cookie('current_user', str(username))
+            self.redirect(self.get_argument("next", "/"))
+        else:
+            print 'Check user failed.'
+            pass
 
 
 class FileNotFoundHandler(BaseHandler):
@@ -41,6 +53,7 @@ class FileNotFoundHandler(BaseHandler):
 
 
 class PostHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self, article_id):
         self.render('post.html')
 
@@ -48,6 +61,7 @@ class PostHandler(BaseHandler):
     /post:post a new article
     /post/id : modify article with its id
     '''
+    @tornado.web.authenticated
     def post(self, article_id):
         print 'article_id:', article_id
 
@@ -99,4 +113,7 @@ class ArticledHandler(BaseHandler):
             self.render('article.html', article=article)
 
         if operation == '/edit':
-            self.render('edit.html', article=article)
+            if self.get_secure_cookie('current_user') is not None:
+                self.render('edit.html', article=article)
+            else:
+                self.redirect('/login')

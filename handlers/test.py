@@ -1,13 +1,13 @@
-from pymongo import Connection
-import hashlib
-import base64
-conn = Connection()
-db = conn.vs
-password = 'xxxx'
-hash = hashlib.md5()
-hash.update(password)
-value = hash.digest()
-db.users.insert({'username': 'tianwei', 'password': base64.encodestring(value).replace('\n', '')})
+# from pymongo import Connection
+# import hashlib
+# import base64
+# conn = Connection()
+# db = conn.vs
+# password = 'xxxx'
+# hash = hashlib.md5()
+# hash.update(password)
+# value = hash.digest()
+# db.users.insert({'username': 'tianwei', 'password': base64.encodestring(value).replace('\n', '')})
 #print base64.encodestring(value).replace('\n', '')
 # count = 1
 # article = db.articles.find_one({'id': 1})
@@ -58,3 +58,29 @@ db.users.insert({'username': 'tianwei', 'password': base64.encodestring(value).r
 # import markdown2
 # bb = markdown2.markdown("```python\nprint 111\n```", extras=['fenced-code-blocks'])
 # print bb
+
+
+l=[33,2,45,23,555,233,14,67,856]
+
+def quick_sort(l,low,high):
+    if low > high:
+        return
+
+    pivot = l[low]
+    i = low
+    j = high
+
+    while i<j:
+        while i<j and l[j] >= pivot:
+            j-=1
+        l[i] = l[j]
+        while i<j and l[i] < pivot:
+            i+=1
+        l[j] = l[i]
+        l[i] = pivot
+
+    quick_sort(l, low, i-1)
+    quick_sort(l, i+1,high)
+
+quick_sort(l,0,len(l)-1)
+print l
