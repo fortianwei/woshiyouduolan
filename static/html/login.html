@@ -5,6 +5,7 @@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/static/css/my.css" rel="stylesheet">
     <title></title>
+
 </head>
 <body>
 <div class="container login-box">
@@ -39,7 +40,7 @@
                     <p>
                         你是田威吗?什么?你不是?不是的话,你想要做什么危险操作???下面有个注册按钮看到没,你懂的.
                     </p>
-                    <p><input type="button" value="注册" class="btn reg-btn btn-block"></p>
+                    <p><input type="button" value="注册" id='reg-btn' class="btn reg-btn btn-block"></p>
                 </section>
             </section>
         </section>
@@ -49,5 +50,10 @@
 </div>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $('#reg-btn').click(function(){
+            alert("这个懒惰的开发者还没来得及做这个呢o_O!");
+        })
+    </script>
 </body>
 </html>
