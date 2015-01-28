@@ -1,3 +1,4 @@
+#coding=utf-8
 import pymongo
 import tornado.web
 from tornado.web import RequestHandler
@@ -40,7 +41,7 @@ class LoginHandler(BaseHandler):
         user = self.db.users.find({'username': username,'password': password})
         if user.count() > 0:
             print 'Check user success.'
-            self.set_secure_cookie('current_user', str(username))
+            self.set_secure_cookie('current_user', unicode(username))
             self.redirect(self.get_argument("next", "/"))
         else:
             print 'Check user failed.'
@@ -101,14 +102,15 @@ class ArticledHandler(BaseHandler):
             article['id'] = int(float(article_id))
 
         if operation is None:
-            print article['content']
+            #print type(article['content'])
+            print article['content'].decode('utf-8')
             # article['content'] = article['content'].replace('<pre>', '\n    ')
             # article['content'] = article['content'].replace('</pre>', '')
-            import markdown
+            #import markdown
             import markdown2
             # article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
             article['content'] = markdown2.markdown(article['content'], extras=['fenced-code-blocks'])
-            print article['content']
+            print article['content'].decode('utf-8')
 
             self.render('article.html', article=article)
 
