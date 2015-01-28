@@ -85,9 +85,9 @@ class PostHandler(BaseHandler):
 
         articles.update({'id': article['id']}, {'$set': set_data}, True)
         self.redirect('/')
-        print self.get_body_argument('title')
-        print self.get_body_argument('content')
-        print time
+        #print self.get_body_argument('title')
+        #print self.get_body_argument('content')
+        #print time
 
 
 class ArticledHandler(BaseHandler):
@@ -103,14 +103,14 @@ class ArticledHandler(BaseHandler):
 
         if operation is None:
             #print type(article['content'])
-            print article['content'].decode('utf-8')
+            #print article['content'].decode('utf-8')
             # article['content'] = article['content'].replace('<pre>', '\n    ')
             # article['content'] = article['content'].replace('</pre>', '')
             #import markdown
             import markdown2
             # article['content'] = markdown.markdown(article['content'], extensions=['markdown.extensions.codehilite']) #highlight(article['content'], lexer, formatter)
             article['content'] = markdown2.markdown(article['content'], extras=['fenced-code-blocks'])
-            print article['content'].decode('utf-8')
+            #print article['content'].decode('utf-8')
 
             self.render('article.html', article=article)
 
