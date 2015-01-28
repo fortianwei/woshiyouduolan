@@ -38,7 +38,7 @@ class LoginHandler(BaseHandler):
         password = utils.getBase64EncodedMD5String(password)
         print username, password
         user = self.db.users.find({'username': username,'password': password})
-        if user.count() == 1:
+        if user.count() > 0:
             print 'Check user success.'
             self.set_secure_cookie('current_user', str(username))
             self.redirect(self.get_argument("next", "/"))
