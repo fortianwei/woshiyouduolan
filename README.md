@@ -20,22 +20,34 @@ python+tornado+mongodb........balabala不知道还需要什么，慢慢写慢慢
 #相关说明
 
 语言=python  （现在真心没空再去看庞大的JAVA WEB相关了）
+
 框架=tornado  (用这个而不是flask是真心觉得他的源码更优美）
+
 数据库=mongodb （very good)
+
 前端=tornado自身的模板和bootstrap 
+
 blog内容 = markdown2
+
 代码高亮 = pygments
 
-#运行前提
+#运行前提(bootstrap手动下载也行，改下路径就好）
 
-pip install tornado
-pip install markdown2
-pip install pygments
-npm install bower
-bower install bootstrap
-sudo apt-get install mongodb
+`pip install tornado`
 
-python setup.py
-python app.py
+`pip install markdown2`
+
+`pip install pygments`
+
+`npm install bower`
+
+`bower install bootstrap`
+
+`sudo apt-get install mongodb`
+
+
+`python setup.py`
+
+`python app.py`
 
 
