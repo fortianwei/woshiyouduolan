@@ -4,6 +4,10 @@ import tornado.web
 from tornado.web import RequestHandler
 from datetime import datetime
 import utils
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 
 class BaseHandler(RequestHandler):
 
