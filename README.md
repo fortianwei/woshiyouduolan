@@ -13,6 +13,29 @@
 
 早年用java的SSH做网站已经是5年前了，早忘记干净了，这次纯属练手！
 
-python+tornado+mongodb........balabala不知道还需要什么，慢慢写慢慢加（如果，能坚持下去的话），人总是要有目标的不是吗？万一，万一实现了呢？我的目标就是改写以前的那个基于ghost的blog（www.aprilwei.com），别人的框架，自己用起来就懒得改了，还是自己写的亲儿子一样照看来的好。
+python+tornado+mongodb........balabala不知道还需要什么，慢慢写慢慢加（如果，能坚持下去的话），人总是要有目标的不是吗？万一实现了呢？我的目标就是改写以前的那个基于ghost的blog（www.aprilwei.com），别人的框架，自己用起来就懒得改了，还是自己写的亲儿子一样照看来的好。
 
 多写多提交！
+
+#相关说明
+
+语言=python  （现在真心没空再去看庞大的JAVA WEB相关了）
+框架=tornado  (用这个而不是flask是真心觉得他的源码更优美）
+数据库=mongodb （very good)
+前端=tornado自身的模板和bootstrap 
+blog内容 = markdown2
+代码高亮 = pygments
+
+#运行前提
+
+pip install tornado
+pip install markdown2
+pip install pygments
+npm install bower
+bower install bootstrap
+sudo apt-get install mongodb
+
+python setup.py
+python app.py
+
+
