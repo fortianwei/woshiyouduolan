@@ -84,3 +84,20 @@ def quick_sort(l,low,high):
 
 quick_sort(l,0,len(l)-1)
 print l
+
+#binary search
+def find(l, low, high, n):
+
+    while low <= high:
+
+        mid = (low+high)/2
+        if l[mid] == n:
+            return mid
+
+        if l[mid] < n:
+            low = mid + 1
+        if l[mid] > n:
+            high = mid - 1
+    return -1
+
+print find(l,0,len(l)-1,555)
