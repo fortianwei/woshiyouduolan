@@ -103,6 +103,13 @@ body {
     margin-left: 20px;
 }
 
+.article-infos a{
+    color: rgb(51, 51, 51);
+}
+.article-info span{
+    margin-left: 5px;
+}
+
 .article-full {
     font-size: 16px;
     margin-bottom: 10px;
