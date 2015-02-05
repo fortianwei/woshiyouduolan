@@ -93,6 +93,16 @@ body {
     position: relative;
 }
 
+.article-infos{
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    font-size: 13px;
+}
+
+.article-infos .article-info{
+    margin-left: 20px;
+}
+
 .article-full {
     font-size: 16px;
     margin-bottom: 10px;
@@ -132,7 +142,7 @@ body {
 
 .article .article-content {
     font-size: 18px;
-    padding: 25px;
+    padding: 15px;
     margin-bottom: 20px;
     word-wrap: break-word;
 

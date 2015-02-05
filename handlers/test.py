@@ -213,8 +213,26 @@ p = 2000000
 d = [True]*p
 n = list(range(2, p))
 # print list(range(10))
-for i in range(2, int(p**0.5)):
-    #filter(lambda x:x%2!=0,n)
-    for j in n:
-        if j % i == 0:
-            d[i] = False
+# for i in range(2, int(p**0.5)):
+#     #filter(lambda x:x%2!=0,n)
+#     for j in n:
+#         if j % i == 0:
+#             d[i] = False
+
+
+import itertools
+# print list(itertools.permutations([1,2,3,4]))
+# def func(n):
+#             return n[0]-n[1] == n[2] and n[3]/n[4] == n[5] and n[6]+n[7] == n[8] and n[2]*n[5] == n[8]
+# def print_num(numbers):
+#             for i,s in zip(numbers,"abcdefghi"):
+#                     print "{}\t{}".format(s,i)
+# import itertools
+# s=0
+# for n in itertools.permutations(range(1,10)):
+#             if func(n):
+#                     s += 1
+#                     print "-"*10+"Solution ",s
+#                     print_num(n)
+
+print zip((1,2,3),(4,5,6),(7,8,9))

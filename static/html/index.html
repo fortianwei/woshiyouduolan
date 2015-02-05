@@ -10,11 +10,12 @@
             >
         <h2 class="article-title"><a href="/article/{{article['id']}}" rel="bookmark">{{article['title']}}</a></h2>
 
-        <div class="entry-meta">
-                    <span class="posted-on"><i class="fa fa-calendar"></i> <time class="entry-date published"
-                                                                                 datetime="2014-11-05T09:38:43+00:00">
-                        {{article["time"]}}
-                    </time></span></div>
+        <div class="article-infos">
+                <span class="article-info"><span class=" glyphicon glyphicon-time"></span><span>{{article["time"]}}</span></span>
+                <span class="article-info"><a href="/"><span>0浏览</span><span class="glyphicon glyphicon-eye-open"></span></a></span>
+                <span class="article-info"><a href="/"><span>0评论</span><span class="glyphicon glyphicon-comment"></span></a></span>
+
+        </div>
         <!-- .entry-meta -->
         <!-- .entry-header -->
 
