@@ -218,7 +218,3 @@ for i in range(2, int(p**0.5)):
     for j in n:
         if j % i == 0:
             d[i] = False
-
-#此bug也已经修复,麻烦测试,注意,还是先测试测试服.辛苦了.
-
-

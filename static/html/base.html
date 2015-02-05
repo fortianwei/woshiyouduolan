@@ -8,29 +8,12 @@
     {% block header %}{% end %}
 </head>
 <body>
-<div class="desc ">
-    <h3>个人学习博客</h3>
-</div>
-
-<nav class="center-block navbar navbar-default " role="navigation">
-
-    <div>
-        <div class="nav-divider"></div>
-        <ul class="nav navbar-nav container">
-            <li ><a href="/">主页</a></li>
-<!--            <li><a href="#">Nav-Sample 2</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-delay = "0" data-hover="dropdown" data-toggle="dropdown">
-                    Nav-Sample 3
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">javascript</a></li>
-                    <li><a href="#">EJB</a></li>
-                    <li><a href="#">Bootstrap</a></li>
-                </ul>
-            </li>-->
-            <li class="dropdown">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header navbar-left">
+          <ul class="nav navbar-nav">
+              <a class="navbar-brand" href="#">首页</a>
+          <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-delay = "0" data-hover="dropdown" data-toggle="dropdown">
                     关于技术
                     <b class="caret"></b>
@@ -46,11 +29,21 @@
             <li><a href="#">关于我</a></li>
             <li><a href="#">留言</a></li>
             <li><a href="#">实验室</a></li>
-        </ul>
-    </div>
-</nav>
+               </ul>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <input type="text" placeholder="Search" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">搜一下</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
 
-<div class="container">
+
+<div class="container main">
     <div class="row">
         <div id="main_area" class="main_area col-md-8">
                 {% block left_block %} {% end %}

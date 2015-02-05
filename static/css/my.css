@@ -17,22 +17,9 @@ body {
     padding-left: 200px;
 }
 
-.navbar{
-    width: 100%;
 
-
-}
-.navbar .nav {
-    margin: 0 auto;
-}
-
-.navmenu {
-
-}
-
-.navmenu ul {
+.navbar-header  li{
     list-style-type: none;
-    color:#ff0000;
 }
 
 
@@ -40,6 +27,10 @@ body {
     margin-right: 50px;
 }
 
+
+.main{
+    margin-top: 80px;
+}
 .login-box {
     width:500px;
     height:210px;
