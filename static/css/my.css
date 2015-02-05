@@ -27,9 +27,13 @@ body {
     margin-right: 50px;
 }
 
+.index{
+    margin-right: 50px;
+}
 
 .main{
     margin-top: 80px;
+    position: relative;
 }
 .login-box {
     width:500px;
