@@ -82,6 +82,7 @@ class PostHandler(BaseHandler):
             ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
             article['id'] = ret['id']
             set_data['time'] = time
+            set_data['visit_count'] = 0
             print "new id:", article['id']
         else:
             article['id'] = int(float(article_id))
@@ -104,7 +105,10 @@ class ArticledHandler(BaseHandler):
             raise tornado.web.HTTPError(404)
         else:
             article['id'] = int(float(article_id))
-
+            #article['visit_count'] = 1 if not article.has_key('visit_count') else article['visit_count'] + 1
+            #self.db.articles.update({'id': article['id']}, {'$set': article}, True)
+            # print 'here ',article['visit_count']
+            self.db.articles.find_and_modify({'id': article['id']}, update={"$inc": {"visit_count": 1}}, upsert=True)
         if operation is None:
             #print type(article['content'])
             #print article['content'].decode('utf-8')

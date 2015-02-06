@@ -1,10 +1,10 @@
 #coding=utf-8
 
-# from pymongo import Connection
+from pymongo import Connection
 # import hashlib
 # import base64
-# conn = Connection()
-# db = conn.vs
+conn = Connection()
+db = conn.vs
 # password = 'xxxx'
 # hash = hashlib.md5()
 # hash.update(password)
@@ -12,7 +12,8 @@
 # db.users.insert({'username': 'tianwei', 'password': base64.encodestring(value).replace('\n', '')})
 #print base64.encodestring(value).replace('\n', '')
 # count = 1
-# article = db.articles.find_one({'id': 1})
+article = db.articles.find_one({'id': 1})
+print article
 # idd = db.ids.find_and_modify(query={'tablename': 'articles'}, update={"$set": {"id": 10}}, new=True)
 # print idd["id"]
 # print article
@@ -220,19 +221,3 @@ n = list(range(2, p))
 #             d[i] = False
 
 
-import itertools
-# print list(itertools.permutations([1,2,3,4]))
-# def func(n):
-#             return n[0]-n[1] == n[2] and n[3]/n[4] == n[5] and n[6]+n[7] == n[8] and n[2]*n[5] == n[8]
-# def print_num(numbers):
-#             for i,s in zip(numbers,"abcdefghi"):
-#                     print "{}\t{}".format(s,i)
-# import itertools
-# s=0
-# for n in itertools.permutations(range(1,10)):
-#             if func(n):
-#                     s += 1
-#                     print "-"*10+"Solution ",s
-#                     print_num(n)
-
-print zip((1,2,3),(4,5,6),(7,8,9))
