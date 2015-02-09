@@ -78,11 +78,9 @@ body {
 }
 
 .main_area {
-    padding-right: 0px;
 }
 
 .widget-area {
-    padding-left: 0px;
 }
 
 .article {
@@ -240,6 +238,7 @@ body {
 .widget-area .widget ul {
     padding-left: 0px;
     align-content: center;
+    padding-right: 10px;
 }
 
 .widget-area .widget ul li {
