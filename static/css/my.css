@@ -78,7 +78,6 @@ body {
 }
 
 .main_area {
-    padding-left: 50px;
     padding-right: 0px;
 }
 
@@ -165,6 +164,10 @@ body {
     padding: 15px;
     margin-bottom: 20px;
     word-wrap: break-word;
+    word-break: break-all;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 }
 
