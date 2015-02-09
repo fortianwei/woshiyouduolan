@@ -17,6 +17,9 @@ body {
     padding-left: 200px;
 }
 
+.navul{
+    margin-left: 50px;
+}
 
 .navbar-header  li{
     list-style-type: none;
@@ -26,6 +29,7 @@ body {
 .navbar-nav li{
     margin-right: 50px;
 }
+
 
 .index{
     margin-right: 50px;
