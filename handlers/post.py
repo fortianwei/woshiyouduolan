@@ -3,6 +3,7 @@ import tornado
 from base import BaseHandler
 from datetime import datetime
 
+
 class PostHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self, article_id):

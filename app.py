@@ -22,6 +22,7 @@ class Application(tornado.web.Application):
             url(r'/index\.html', welcome.WelcomeHandler, name='index'),
             url(r'/login', login.LoginHandler, name='login'),
             url(r'/post/?([0-9]+)?', post.PostHandler, name='post'),
+            url(r'/comments', comments.CommentsHandler, name='comments'),
             url(r'/article/([0-9]+\.?[0-9]*)(/[a-z]+)?', article.ArticledHandler, name='article'),
 
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),

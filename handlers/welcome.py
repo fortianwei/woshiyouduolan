@@ -1,6 +1,8 @@
 # coding=utf-8
 from base import BaseHandler
 import pymongo
+
+
 class WelcomeHandler(BaseHandler):
 
     def get(self):

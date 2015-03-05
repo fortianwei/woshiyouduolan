@@ -253,3 +253,24 @@ body {
 .widget-area .widget a {
     font-size: 12px;
 }
+
+.comments-full {
+    font-size: 16px;
+    margin-bottom: 10px;
+    background: none repeat scroll 0% 0% rgb(255, 255, 255);
+    border: 3px solid rgb(230, 230, 230);
+    padding: 35px;
+    position: relative;
+    -moz-border-radius: 15px; /* Gecko browsers */
+    -webkit-border-radius: 15px; /* Webkit browsers */
+    border-radius: 15px; /* W3C syntax */
+}
+
+.comments-full .comment{
+    margin-top: 30px;
+    border: 3px solid rgb(230, 230, 230);
+    padding: 35px;
+    -moz-border-radius: 5px; /* Gecko browsers */
+    -webkit-border-radius: 5px; /* Webkit browsers */
+    border-radius: 5px; /* W3C syntax */
+}
