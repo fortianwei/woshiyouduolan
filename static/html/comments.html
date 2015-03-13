@@ -4,6 +4,13 @@
 {% end %}
 {% block header %}
 <link href="/static/css/pygments.css" rel="stylesheet">
+<script>
+    function weiboLogin(){
+        WB2.login(function(){
+           alert(111)
+        });
+    }
+</script>
 {% end %}
 
 {% autoescape None %}
@@ -51,6 +58,7 @@
                     <button type="submit" class="btn btn-default">发表评论</button>
                 </div>
             </div>
+            <button type="button" class="btn btn-default" onclick="weiboLogin()">test</button>
         </form>
     </div>
 </div>
