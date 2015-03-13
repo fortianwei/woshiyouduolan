@@ -160,19 +160,18 @@
         <textarea class="code_input" id="textareaCode" name="textareaCode" wrap="logical" rows="10" cols="50">
         </textarea>
 
-        <form style="margin:0px" action="/try/demo_source/result.php" method="post" target="view" id="tryitform"
+        <form style="margin:0px" action="/library/tryjs" method="post" target="view" id="tryitform"
               name="tryitform" onsubmit="validateForm();">
-            <input id="submitBTN" onclick="submitTryit()" type="submit" value="提交运行 &#187;">
+            <input id="submitBTN" type="submit" value="提交运行 &#187;">
             <input type="hidden" name="code" id="code">
             <input type="hidden" id="bt" name="bt">
         </form>
     </div>
     <div id="result">
         <div class="headerText">测试结果:</div>
-        <div class="headerText" style="right:10px;"><a style="color:#617f10"
-                                                       href="http://www.w3cschool.cc">w3cschool.cc</a> - 在线测试
+        <div class="headerText" style="right:10px;">
         </div>
-        <iframe id="iframeResult" class="result_output" frameborder="0" name="view" src="demo_source/tryjs_events.htm"
+        <iframe id="iframeResult" class="result_output" frameborder="0" name="view" src="/library/tryjs"
                 width="400"></iframe>
     </div>
     <div style="clear:both;"></div>
@@ -180,8 +179,6 @@
         请在上面的文本框中编辑您的代码，然后单击提交按钮查看运行结果。
     </div>
 </div>
-<div style="display:none;">
-    <script src="http://s11.cnzz.com/stat.php?id=5578006&web_id=5578006" language="JavaScript"></script>
-</div>
+
 </body>
 </html>
