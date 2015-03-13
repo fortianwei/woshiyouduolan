@@ -12,15 +12,7 @@
         });
     }
 
-    function getInfo(){
-        WB2.anyWhere(function(W){
-            W.parseCMD("/users/show.json",function(oResult,bStatus)){
-                if(bStatus){
 
-                }
-            }
-        })
-    }
     WB2.anyWhere(function (W) {
     W.widget.connectButton({
         id: "wb_connect_btn",
@@ -83,9 +75,9 @@
                     <button type="submit" class="btn btn-default">发表评论</button>
                 </div>
             </div>
-            <button type="button" class="btn btn-default" onclick="weiboLogin()">test</button>
+            <!--<button type="button" class="btn btn-default" onclick="weiboLogin()">test</button>-->
             <div id="wb_connect_btn"></div>
-            <wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button>
+            <!--<wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button>-->
         </form>
     </div>
 </div>
