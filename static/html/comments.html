@@ -5,28 +5,28 @@
 {% block header %}
 <link href="/static/css/pygments.css" rel="stylesheet">
 <script>
-    function weiboLogin(){
-        WB2.login(function(o){
-           alert(111);
-           alert(o);
+    /*function weiboLogin() {
+        WB2.login(function (o) {
+            alert(111);
+            alert(o);
         });
     }
-
-
+*/
     WB2.anyWhere(function (W) {
-    W.widget.connectButton({
-        id: "wb_connect_btn",
-        type: '3,2',
-        callback: {
-            login: function (o) { //登录后的回调函数
-                alert("login: " + o.screen_name)
-            },
-            logout: function () { //退出后的回调函数
-                alert('logout');
+        W.widget.connectButton({
+            id: "wb_connect_btn",
+            type: '3,2',
+            callback: {
+                login: function (o) { //登录后的回调函数
+                    console.log(o)
+//                    alert("login: " + o.screen_name)
+                },
+                logout: function () { //退出后的回调函数
+//                    alert('logout');
+                }
             }
-        }
+        });
     });
-});
 </script>
 {% end %}
 
