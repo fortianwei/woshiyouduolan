@@ -1,0 +1,5 @@
+*.pyc
+*.swp
+/bower_components
+/dump
+*.tar.gz

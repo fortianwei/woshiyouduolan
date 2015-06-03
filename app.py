@@ -7,6 +7,7 @@ import tornado.web
 import tornado.httpserver
 from tornado.options import define,options
 from tornado.web import url
+from pymongo import MongoClient
 
 from handlers import *
 define("port", default=2333, type=int)
@@ -39,7 +40,7 @@ class Application(tornado.web.Application):
         }
 
         tornado.web.Application.__init__(self, handler, **settings)
-        self.syncConnection = pymongo.Connection(MONGO_SERVER, 27017)
+        self.syncConnection = MongoClient(MONGO_SERVER, 27017)
 
         if 'db' in overrides:
             self.syncdb = self.syncConnection[overrides['db']]

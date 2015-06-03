@@ -6,7 +6,7 @@ conn = Connection()
 db = conn.vs
 if db.ids.count() == 0:
     db.ids.insert({"tablename": "articles", "id": 1})
-    password = 'yourpassword'
+    password = 'lovess'
     db.users.insert({'username': 'tianwei', 'password': utils.getBase64EncodedMD5String(password)})
     print "Setup success"
 else:
