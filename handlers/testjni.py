@@ -11,5 +11,7 @@ class TestJniHandler(BaseHandler):
         ret = self.db.ids.find_and_modify({'tablename' : 'testjni'}, update = {'$inc' : {'id' : 1}},new = True)
         id = ret['id']
         testjni.update({'id' : id },{'$set' : data}, True)
-
-        
+        self.write("success")
+    
+    def post(self):
+        self.get()
