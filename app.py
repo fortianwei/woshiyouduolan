@@ -8,8 +8,8 @@ import tornado.httpserver
 from tornado.options import define,options
 from tornado.web import url
 from pymongo import MongoClient
-
 from handlers import *
+
 define("port", default=2333, type=int)
 define("config_file", default="app_config.yml", help="app_config file")
 
@@ -25,11 +25,10 @@ class Application(tornado.web.Application):
             url(r'/post/?([0-9]+)?', post.PostHandler, name='post'),
             url(r'/comments', comments.CommentsHandler, name='comments'),
             url(r'/article/([0-9]+\.?[0-9]*)(/[a-z]+)?', article.ArticledHandler, name='article'),
-
+            url(r'/testjni', testjni.TestJniHandler, name='testjni'),
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
             url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'}),
             url(r'.*', file_not_found.FileNotFoundHandler, name='404')
-
 
         ]
 
