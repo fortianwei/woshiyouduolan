@@ -68,10 +68,29 @@
                 <div class="col-md-offset-2 col-md-10">
                     <button type="submit" class="btn btn-default">发表评论</button>
                 </div>
+                <div  class="col-md-offset-2 col-md-10" id="wb_connect_btn"></div>
             </div>
         </form>
     </div>
 </div>
+<script>
+	
+    WB2.anyWhere(function (W) {
+        W.widget.connectButton({
+            id: "wb_connect_btn",
+            type: '3,2',
+            callback: {
+                login: function (o) { //登录后的回调函数
+                    console.log(o)
+//                    alert("login: " + o.screen_name)
+                },
+                logout: function () { //退出后的回调函数
+//                    alert('logout');
+                }
+            }
+        });
+    });
+</script>
 {% end %}
 
 {% block right_block %}
