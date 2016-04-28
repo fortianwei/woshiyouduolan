@@ -274,3 +274,7 @@ body {
     -webkit-border-radius: 5px; /* Webkit browsers */
     border-radius: 5px; /* W3C syntax */
 }
+
+.page{
+    margin-right: 15px;
+}

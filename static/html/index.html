@@ -34,15 +34,13 @@ AprilWei
 </articles>
 
 <div class="row">
-    <div class="col-md-8">
-        <ul class="pagination">
+        <ul class="pagination pull-right page">
             <li id="page_prev"><a onclick="goPrev()">&larr; Newer</a></li>
             {% for i in range(1, count + 1)%}
             <li id="page_{{i}}"><a href="/page/{{i}}">{{i}}</a></li>
             {% end %}
             <li id="page_next"><a onclick="goNext({{count}})">Older &rarr;</a></li>
         </ul>
-    </div>
 </div>
 {% end %}
 <!-- #main -->
