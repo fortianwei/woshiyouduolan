@@ -102,9 +102,7 @@
     <div class="container">
         <footer>
             <p class="pull-right"><a href="#">返回顶部</a></p>
-
-
-            <p>网站源码： <a href="https://github.com/fortianwei/woshiyouduolan">here</a>.</p>
+            <p>网站源码： <a href="https://github.com/fortianwei/woshiyouduolan">here</a></p>
         </footer>
     </div>
 </div>
@@ -118,8 +116,39 @@
     $('#search_btn').click(function () {
         alert("这个懒惰的开发者还没来得及做这个呢o_O!");
     })
+    function goPrev(){
+        console.log("go prev")
+        var page = getCurrentPage();
+        console.log("parseInt page is " + parseInt(page))
+        if(parseInt(page) > 1){
+            console.log("parseInt(page) - 1 is " + ("/page/" + (parseInt(page) -1)))
+            window.location.href = "/page/" + (parseInt(page) - 1)
+        }
+    }
+
+    function goNext(totalPage){
+        console.log("go next")
+        var page = getCurrentPage();
+        if(parseInt(page) < parseInt(totalPage)){
+            window.location.href = "/page/" + (parseInt(page) + 1)
+        }
+    }
+
+    function getCurrentPage(){
+        var pathname = window.location.pathname;
+        var page = 1;
+        if(pathname.substr(0, 6) == "/page/"){
+            page =  pathname.substring(6, pathname.length)
+        }else if(pathname =="/"){
+            page = 1;
+        }
+        console.log("page is " + page)
+        return page;
+
+    }
 </script>
 
+{% block script %} {% end %}
 </body>
 
 </html>

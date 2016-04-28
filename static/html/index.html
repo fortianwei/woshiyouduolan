@@ -1,20 +1,21 @@
 {% extends "base.html" %}
- {% block title %}
-        AprilWei
-        {% end %}
-        {% block header %}
-        {% end %}
+{% block title %}
+AprilWei
+{% end %}
+{% block header %}
+{% end %}
 
 {% block left_block %}
-<articles id="articles" >
+<articles id="articles">
     {% for article in articles %}
     <article id="post-2753" class="article"
-            >
+    >
         <h2 class="article-title"><a href="/article/{{article['id']}}" rel="bookmark">{{article['title']}}</a></h2>
 
         <div class="article-infos">
-                <span class="article-info"><span class=" glyphicon glyphicon-time"></span><span>{{article["time"]}}</span></span>
-                <span class="article-info"><span class="glyphicon glyphicon-eye-open"></span><span>{% if article.has_key("visit_count")%}{{article["visit_count"]}} {% else %}0{% end %}浏览</span></span>
+            <span class="article-info"><span
+                    class=" glyphicon glyphicon-time"></span><span>{{article["time"]}}</span></span>
+            <span class="article-info"><span class="glyphicon glyphicon-eye-open"></span><span>{% if article.has_key("visit_count")%}{{article["visit_count"]}} {% else %}0{% end %}浏览</span></span>
 
         </div>
         <!-- .entry-meta -->
@@ -31,12 +32,25 @@
     <!-- #post-## -->
     {% end %}
 </articles>
+
+<div class="row">
+    <div class="col-md-8">
+        <ul class="pagination">
+            <li id="page_prev"><a onclick="goPrev()">&larr; Newer</a></li>
+            {% for i in range(1, count + 1)%}
+            <li id="page_{{i}}"><a href="/page/{{i}}">{{i}}</a></li>
+            {% end %}
+            <li id="page_next"><a onclick="goNext({{count}})">Older &rarr;</a></li>
+        </ul>
+    </div>
+</div>
 {% end %}
 <!-- #main -->
 <!-- #primary -->
 {% block right_block %}
-    <aside id="recent-posts-3" class="widget"><h3 class="widget-title">最新文章</h3>
-        <div class="widget-content">
+<aside id="recent-posts-3" class="widget"><h3 class="widget-title">最新文章</h3>
+
+    <div class="widget-content">
         <ul>
             {% for article in articles2 %}
             <li>
@@ -44,7 +58,27 @@
             </li>
             {% end %}
         </ul>
-         </div>
-    </aside>
-    
+    </div>
+</aside>
+
+{% end %}
+{%block script %}
+<script>
+     window.onload = function(){
+         var pageCount = parseInt("{{count}}")
+        var page = getCurrentPage();
+        console.log($(".pagination #page_" + page))
+        $(".pagination #page_" + page).addClass("active")
+         if(page <= 1){
+             $(".pagination #page_prev").addClass("disabled")
+         }else{
+             $(".pagination #page_prev").removeClass("enabled")
+         }
+         if(page >= pageCount){
+             $(".pagination #page_next").addClass("disabled")
+         }else{
+             $(".pagination #page_next").removeClass("disabled")
+         }
+    }
+</script>
 {% end %}

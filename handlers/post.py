@@ -1,5 +1,6 @@
 # coding=utf-8
-import tornado
+import tornado.web
+import tornado.gen
 from base import BaseHandler
 from datetime import datetime
 
@@ -13,6 +14,7 @@ class PostHandler(BaseHandler):
     /post:post a new article
     /post/id : modify article with its id
     '''
+    @tornado.gen.coroutine
     @tornado.web.authenticated
     def post(self, article_id):
         print 'article_id:', article_id
@@ -20,13 +22,12 @@ class PostHandler(BaseHandler):
         title = self.get_body_argument('title', default='No title')
         content = self.get_body_argument('content', default='No content')
         time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        articles = self.db.articles
         article = {'title': title, 'content': content, 'time': time, 'modify_time': time}
 
         set_data = {'title': article['title'], 'content': article['content'], 'modify_time': article['modify_time']}
 
         if article_id is None:
-            ret = self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
+            ret = yield self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
             article['id'] = ret['id']
             set_data['time'] = time
             set_data['visit_count'] = 0
@@ -35,7 +36,7 @@ class PostHandler(BaseHandler):
             article['id'] = int(float(article_id))
         set_data['id'] = article['id']
 
-        articles.update({'id': article['id']}, {'$set': set_data}, True)
+        yield self.db.articles.update({'id': article['id']}, {'$set': set_data}, True)
         self.redirect('/')
         #print self.get_body_argument('title')
         #print self.get_body_argument('content')

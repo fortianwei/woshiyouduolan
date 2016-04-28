@@ -8,6 +8,8 @@ import tornado.httpserver
 from tornado.options import define,options
 from tornado.web import url
 from pymongo import MongoClient
+from motor import MotorClient
+
 from handlers import *
 
 define("port", default=2333, type=int)
@@ -19,8 +21,8 @@ MONGO_SERVER = "localhost"
 class Application(tornado.web.Application):
     def __init__(self, **overrides):
         handler = [
-            url(r'/', welcome.WelcomeHandler, name='index'),
-            url(r'/index\.html', welcome.WelcomeHandler, name='index'),
+            url(r'/([0-9]+)?', welcome.WelcomeHandler, name='index'),
+            url(r'/page/([0-9]+)?', welcome.WelcomeHandler, name='page'),
             url(r'/login', login.LoginHandler, name='login'),
             url(r'/post/?([0-9]+)?', post.PostHandler, name='post'),
             url(r'/comments', comments.CommentsHandler, name='comments'),
@@ -39,12 +41,13 @@ class Application(tornado.web.Application):
         }
 
         tornado.web.Application.__init__(self, handler, **settings)
-        self.syncConnection = MongoClient(MONGO_SERVER, 27017)
+        # self.syncConnection = MongoClient(MONGO_SERVER, 27017)
+        self.asyncConnection = MotorClient(MONGO_SERVER, 27017)
 
         if 'db' in overrides:
-            self.syncdb = self.syncConnection[overrides['db']]
+            self.asyncdb = self.asyncConnection[overrides['db']]
         else:
-            self.syncdb = self.syncConnection['vs']
+            self.asyncdb = self.asyncConnection['vs']
 
 
 def main():

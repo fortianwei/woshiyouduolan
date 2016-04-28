@@ -10,7 +10,7 @@ class BaseHandler(RequestHandler):
 
     @property
     def db(self):
-        return self.application.syncdb
+        return self.application.asyncdb
 
     def write_error(self, status_code, **kwargs):
         if status_code == 404:
