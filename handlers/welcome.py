@@ -6,16 +6,21 @@ import tornado.gen
 
 class WelcomeHandler(BaseHandler):
 
+    def __init__(self):
+        self.page_size = 6
+        self.side_articles_num = 8
+
     @tornado.gen.coroutine
     def get(self, page):
         page = int(page) if page else 1
         print 'page is ', page
         collection_articles = self.db.articles
         # 分页
-        cursor = collection_articles.find().sort('time', pymongo.DESCENDING).skip(10 * (page - 1)).limit(10)
-        cursor2 = collection_articles.find().sort('time', pymongo.DESCENDING).limit(8)
-        articles = yield cursor.to_list(length=10)
-        articles2 = yield cursor2.to_list(length=8)
+        cursor = collection_articles.find().sort('time', pymongo.DESCENDING).\
+            skip(self.page_size * (page - 1)).limit(self.page_size)
+        cursor2 = collection_articles.find().sort('time', pymongo.DESCENDING).limit(self.side_articles_num)
+        articles = yield cursor.to_list(length=self.page_size)
+        articles2 = yield cursor2.to_list(length=self.side_articles_num)
         count = yield collection_articles.count()
-        self.render('index.html', articles=articles, articles2=articles2, count=int(count/10) +
-                                                                                (1 if count % 10 != 0 else 0))
+        self.render('index.html', articles=articles, articles2=articles2, count=int(count/self.page_size) +
+                                                                                (1 if count % self.page_size != 0 else 0))
