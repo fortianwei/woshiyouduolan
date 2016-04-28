@@ -38,6 +38,8 @@ blog内容 = markdown2
 
 `pip install tornado`
 
+`pip install motor`
+
 `pip install markdown2`
 
 `pip install pygments`
