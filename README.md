@@ -24,9 +24,9 @@ python+tornado+mongodb........balabala不知道还需要什么，慢慢写慢慢
 
 语言=python  （现在真心没空再去看庞大的JAVA WEB相关了）
 
-框架=tornado  (用这个而不是flask是真心觉得他的源码更优美）
+框架=tornado  
 
-数据库=mongodb （very good)
+数据库=mongodb
 
 前端=tornado自身的模板和bootstrap 
 
