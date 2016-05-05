@@ -8,7 +8,7 @@ class WelcomeHandler(BaseHandler):
 
     def __init__(self, application, request, **kwargs):
         super(WelcomeHandler, self).__init__(application, request, **kwargs)
-        self.page_size = 6
+        self.page_size = 8
         self.side_articles_num = 8
 
     @tornado.gen.coroutine
