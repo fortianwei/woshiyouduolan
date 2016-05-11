@@ -4,7 +4,7 @@ AprilWei
 {% end %}
 {% block header %}
 {% end %}
-
+{% autoescape None %}
 {% block left_block %}
 <articles id="articles">
     {% for article in articles %}
@@ -22,9 +22,8 @@ AprilWei
         </div>
         <!-- .entry-meta -->
         <!-- .entry-header -->
-
         <div class="article-content">
-            <p>{{article["content"][0:200]}}[…]</p>
+            <p>{{article["content"][0:200]}}</p>
 
         </div>
         <a class="btn btn-info read-more" rel="nofollow" href="/article/{{article['id']}}"

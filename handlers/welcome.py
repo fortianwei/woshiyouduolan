@@ -2,6 +2,7 @@
 from base import BaseHandler
 import pymongo
 import tornado.gen
+import markdown2
 
 
 class WelcomeHandler(BaseHandler):
@@ -21,6 +22,8 @@ class WelcomeHandler(BaseHandler):
             skip(self.page_size * (page - 1)).limit(self.page_size)
         cursor2 = collection_articles.find().sort('time', pymongo.DESCENDING).limit(self.side_articles_num)
         articles = yield cursor.to_list(length=self.page_size)
+        for article in articles:
+            article['content'] = markdown2.markdown(article['content'], extras=['fenced-code-blocks'])
         articles2 = yield cursor2.to_list(length=self.side_articles_num)
         count = yield collection_articles.count()
         self.render('index.html', articles=articles, articles2=articles2, count=int(count/self.page_size) +
