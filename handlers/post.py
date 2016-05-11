@@ -21,10 +21,12 @@ class PostHandler(BaseHandler):
 
         title = self.get_body_argument('title', default='No title')
         content = self.get_body_argument('content', default='No content')
+        tags = self.get_body_argument('tags', default='').split(',')
+        tags = map(lambda x: x.strip(), tags)
         time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        article = {'title': title, 'content': content, 'time': time, 'modify_time': time}
+        article = {'title': title, 'content': content, 'time': time, 'modify_time': time, "tags": tags}
 
-        set_data = {'title': article['title'], 'content': article['content'], 'modify_time': article['modify_time']}
+        set_data = {'title': title, 'content': content, 'modify_time': time, 'tags': tags}
 
         if article_id is None:
             ret = yield self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)

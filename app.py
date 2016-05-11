@@ -5,7 +5,7 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 import tornado.httpserver
-from tornado.options import define,options
+from tornado.options import define, options
 from tornado.web import url
 from pymongo import MongoClient
 from motor import MotorClient
@@ -25,6 +25,7 @@ class Application(tornado.web.Application):
             url(r'/page/([0-9]+)?', welcome.WelcomeHandler, name='page'),
             url(r'/login', login.LoginHandler, name='login'),
             url(r'/post/?([0-9]+)?', post.PostHandler, name='post'),
+            url(r'/tags/(.*)', tags.TagsHandler, name='tags'),
             url(r'/comments', comments.CommentsHandler, name='comments'),
             url(r'/article/([0-9]+\.?[0-9]*)(/[a-z]+)?', article.ArticledHandler, name='article'),
             url(r'/testjni', testjni.TestJniHandler, name='testjni'),

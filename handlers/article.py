@@ -16,6 +16,8 @@ class ArticledHandler(BaseHandler):
             raise tornado.web.HTTPError(404)
         else:
             article['id'] = int(article_id)
+            if 'tags' not in article:
+                article['tags'] = ''
             #article['visit_count'] = 1 if not article.has_key('visit_count') else article['visit_count'] + 1
             #self.db.articles.update({'id': article['id']}, {'$set': article}, True)
             # print 'here ',article['visit_count']

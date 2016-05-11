@@ -22,29 +22,34 @@
         <span class="article-info"><span
                 class=" glyphicon glyphicon-time"></span><span>{{article["time"]}}</span></span>
         <span class="article-info"><span class="glyphicon glyphicon-eye-open"></span><span>{% if article.has_key("visit_count") %} {{ article["visit_count"]}} {% else %} 0 {% end %}浏览</span></span>
+        <span class="article-info"><span>{% if 'tags' in article and article['tags'] %} <span
+                class="glyphicon glyphicon-tag"></span>{% for tag in article['tags'] %} <a href="/tags/{{tag}}">
+            {{tag}}</a>&nbsp;&nbsp;{% end %}{% end %}</span></span>
 
     </div>
     <div class="article_content">{{article["content"]}}</div>
 
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key= {{article["id"]}} data-title={{article["title"]}} data-url= 'http://www.aprilwei.com/article/{{article["id"]}}'></div>
-		<!-- 多说评论框 end -->
-				<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-				<script type="text/javascript">
-					var duoshuoQuery = {short_name:"aprilwei2"};
-						(function() {
-										var ds = document.createElement('script');
-												ds.type = 'text/javascript';ds.async = true;
-														ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-																ds.charset = 'UTF-8';
-																		(document.getElementsByTagName('head')[0] 
-																					 || document.getElementsByTagName('body')[0]).appendChild(ds);
-																					})();
-																						</script>
-																						<!-- 多说公共JS代码 end -->
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key={{article["id"]}} data-title={{article["title"]}}
+         data-url='http://www.aprilwei.com/article/{{article["id"]}}'></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name: "aprilwei2"};
+        (function () {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';
+            ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+    <!-- 多说公共JS代码 end -->
 </div>
 <script>
-	
+
     WB2.anyWhere(function (W) {
         W.widget.connectButton({
             id: "wb_connect_btn",

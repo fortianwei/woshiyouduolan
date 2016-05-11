@@ -34,51 +34,6 @@ AprilWei
     <!-- #post-## -->
     {% end %}
 </articles>
-
-<div class="row">
-        <ul class="pagination pull-right page">
-            <li id="page_prev"><a onclick="goPrev()">&larr; Newer</a></li>
-            {% for i in range(1, count + 1)%}
-            <li id="page_{{i}}"><a href="/page/{{i}}">{{i}}</a></li>
-            {% end %}
-            <li id="page_next"><a onclick="goNext({{count}})">Older &rarr;</a></li>
-        </ul>
-</div>
 {% end %}
 <!-- #main -->
 <!-- #primary -->
-{% block right_block %}
-<aside id="recent-posts-3" class="widget"><h3 class="widget-title">最新文章</h3>
-
-    <div class="widget-content">
-        <ul>
-            {% for article in articles2 %}
-            <li>
-                <a href="/article/{{article['id']}}">{{article['title']}}</a>
-            </li>
-            {% end %}
-        </ul>
-    </div>
-</aside>
-
-{% end %}
-{%block script %}
-<script>
-     window.onload = function(){
-         var pageCount = parseInt("{{count}}")
-        var page = getCurrentPage();
-        console.log($(".pagination #page_" + page))
-        $(".pagination #page_" + page).addClass("active")
-         if(page <= 1){
-             $(".pagination #page_prev").addClass("disabled")
-         }else{
-             $(".pagination #page_prev").removeClass("enabled")
-         }
-         if(page >= pageCount){
-             $(".pagination #page_next").addClass("disabled")
-         }else{
-             $(".pagination #page_next").removeClass("disabled")
-         }
-    }
-</script>
-{% end %}
