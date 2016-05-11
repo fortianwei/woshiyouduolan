@@ -4,6 +4,11 @@
 {% end %}
 {% block header %}
 <link href="/static/css/pygments.css" rel="stylesheet">
+
+{% if 'tags' in article and article['tags'] %}
+<meta name="keywords" content="{{','.join(article['tags'])}}">
+{% end %}
+
 {% end %}
 
 {% autoescape None %}
