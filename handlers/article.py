@@ -36,6 +36,7 @@ class ArticledHandler(BaseHandler):
             self.render('article.html', article=article)
 
         if operation == '/edit':
+            article['tags'] = ','.join(article['tags'])
             if self.get_secure_cookie('current_user') is not None:
                 self.render('edit.html', article=article)
             else:
