@@ -31,6 +31,7 @@ class Application(tornado.web.Application):
             url(r'/testjni', testjni.TestJniHandler, name='testjni'),
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
             url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'}),
+            url(r'/(.*)ico', tornado.web.StaticFileHandler, {'path': 'static/image'}),
             url(r'.*', file_not_found.FileNotFoundHandler, name='404')
 
         ]
