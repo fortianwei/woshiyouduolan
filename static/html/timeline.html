@@ -30,6 +30,9 @@
                     <div class="timeline-body">
                         <p>{{p['content']}}</p>
                     </div>
+                    {% if p['img'] %}
+                    <img height="100px" width="200" src="{{p['img']}}"/>
+                    {% end %}
 
                     <div class="timeline-footer">
                         <p class="text-right">{{p['time']}} </p>
