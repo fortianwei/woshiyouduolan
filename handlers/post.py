@@ -48,5 +48,5 @@ class PostHandler(BaseHandler):
             article_id = int(float(article_id))
         data_set['id'] = article_id
 
-        yield self.db.articles.update({'id': article_id}, {'$set': data_set}, True)
+        yield self.db[table_name].update({'id': article_id}, {'$set': data_set}, True)
         self.redirect('/')
