@@ -25,7 +25,8 @@ class PostHandler(BaseHandler):
         tags = self.get_body_argument('tags', default='').split(',')
         img = self.get_body_argument('img', default='')
         tags = map(lambda x: x.strip(), tags)
-        pp = self.get_body_argument('pp', 'no')
+        pp = self.get_body_argument('kuso', 'no')
+        print 'pp is ', pp
         now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         data_set = {'title': title, 'content': content, 'modify_time': now}
         # article = {'title': title, 'content': content, 'modify_time': time, 'tags': tags}
