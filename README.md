@@ -50,6 +50,8 @@ blog内容 = markdown2
 
 `bower install bootstrap-responsive-timeline`
 
+`bower install font-awesome`
+
 `sudo apt-get install mongodb`
 
 
