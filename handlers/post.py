@@ -14,6 +14,7 @@ class PostHandler(BaseHandler):
     /post:post a new article
     /post/id : modify article with its id
     '''
+
     @tornado.gen.coroutine
     @tornado.web.authenticated
     def post(self, article_id):
@@ -22,24 +23,29 @@ class PostHandler(BaseHandler):
         title = self.get_body_argument('title', default='No title')
         content = self.get_body_argument('content', default='No content')
         tags = self.get_body_argument('tags', default='').split(',')
+        img = self.get_body_argument('img', default='')
         tags = map(lambda x: x.strip(), tags)
-        time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        article = {'title': title, 'content': content, 'time': time, 'modify_time': time, "tags": tags}
-
-        set_data = {'title': title, 'content': content, 'modify_time': time, 'tags': tags}
+        pp = self.get_body_argument('pp', 'no')
+        now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        data_set = {'title': title, 'content': content, 'modify_time': now}
+        # article = {'title': title, 'content': content, 'modify_time': time, 'tags': tags}
+        if pp == 'on':
+            # timeline
+            data_set['img'] = img
+            table_name = 'timelines'
+        else:
+            data_set['tags'] = tags
+            table_name = 'articles'
 
         if article_id is None:
-            ret = yield self.db.ids.find_and_modify({'tablename': "articles"}, update={"$inc": {"id": 1}}, new=True)
-            article['id'] = ret['id']
-            set_data['time'] = time
-            set_data['visit_count'] = 0
-            print "new id:", article['id']
+            ret = yield self.db.ids.find_and_modify({'tablename': table_name}, update={"$inc": {"id": 1}}, new=True)
+            article_id = ret['id']
+            data_set['time'] = now
+            data_set['visit_count'] = 0
         else:
-            article['id'] = int(float(article_id))
-        set_data['id'] = article['id']
+            # timeline does not support edit
+            article_id = int(float(article_id))
+        data_set['id'] = article_id
 
-        yield self.db.articles.update({'id': article['id']}, {'$set': set_data}, True)
+        yield self.db.articles.update({'id': article_id}, {'$set': data_set}, True)
         self.redirect('/')
-        #print self.get_body_argument('title')
-        #print self.get_body_argument('content')
-        #print time

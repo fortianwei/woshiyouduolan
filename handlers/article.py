@@ -4,7 +4,7 @@ import tornado.web
 import tornado.gen
 
 
-class ArticledHandler(BaseHandler):
+class ArticleHandler(BaseHandler):
 
     @tornado.gen.coroutine
     def get(self, article_id, operation):

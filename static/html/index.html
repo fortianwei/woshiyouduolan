@@ -16,7 +16,8 @@ AprilWei
             <span class="article-info"><span
                     class=" glyphicon glyphicon-time"></span><span>{{article["time"]}}</span></span>
             <span class="article-info"><span class="glyphicon glyphicon-eye-open"></span><span>{% if article.has_key("visit_count")%}{{article["visit_count"]}} {% else %}0{% end %}浏览</span></span>
-            <span class="article-info"><span>{% if 'tags' in article %}<span class="glyphicon glyphicon-tag"></span>{% for tag in article['tags'] %} <a href="/tags/{{tag}}"> {{tag}}</a>&nbsp;&nbsp;{% end %}{% end %}</span></span>
+            <span class="article-info"><span>{% if 'tags' in article %}<span class="glyphicon glyphicon-tag"></span>{% for tag in article['tags'] %} <a
+                    href="/tags/{{tag}}"> {{tag}}</a>&nbsp;&nbsp;{% end %}{% end %}</span></span>
 
 
         </div>
@@ -35,18 +36,19 @@ AprilWei
 </articles>
 
 <div class="row">
-        <ul class="pagination pull-right page">
-            <li id="page_prev"><a onclick="goPrev()">&larr; Newer</a></li>
-            {% for i in range(1, count + 1)%}
-            <li id="page_{{i}}"><a href="/page/{{i}}">{{i}}</a></li>
-            {% end %}
-            <li id="page_next"><a onclick="goNext({{count}})">Older &rarr;</a></li>
-        </ul>
+    <ul class="pagination pull-right page">
+        <li id="page_prev"><a onclick="goPrev()">&larr; Newer</a></li>
+        {% for i in range(1, count + 1)%}
+        <li id="page_{{i}}"><a href="/page/{{i}}">{{i}}</a></li>
+        {% end %}
+        <li id="page_next"><a onclick="goNext({{count}})">Older &rarr;</a></li>
+    </ul>
 </div>
 {% end %}
 <!-- #main -->
 <!-- #primary -->
 {% block right_block %}
+
 <aside id="recent-posts-3" class="widget"><h3 class="widget-title">最新文章</h3>
 
     <div class="widget-content">
@@ -58,26 +60,27 @@ AprilWei
             {% end %}
         </ul>
     </div>
+
 </aside>
 
 {% end %}
 {%block script %}
 <script>
-     window.onload = function(){
-         var pageCount = parseInt("{{count}}")
+    window.onload = function () {
+        var pageCount = parseInt("{{count}}")
         var page = getCurrentPage();
         console.log($(".pagination #page_" + page))
         $(".pagination #page_" + page).addClass("active")
-         if(page <= 1){
-             $(".pagination #page_prev").addClass("disabled")
-         }else{
-             $(".pagination #page_prev").removeClass("enabled")
-         }
-         if(page >= pageCount){
-             $(".pagination #page_next").addClass("disabled")
-         }else{
-             $(".pagination #page_next").removeClass("disabled")
-         }
+        if (page <= 1) {
+            $(".pagination #page_prev").addClass("disabled")
+        } else {
+            $(".pagination #page_prev").removeClass("enabled")
+        }
+        if (page >= pageCount) {
+            $(".pagination #page_next").addClass("disabled")
+        } else {
+            $(".pagination #page_next").removeClass("disabled")
+        }
     }
 </script>
 {% end %}

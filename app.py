@@ -1,15 +1,12 @@
 __author__ = 'tianwei'
 import os.path
-import pymongo
 import tornado.ioloop
 import tornado.options
 import tornado.web
 import tornado.httpserver
 from tornado.options import define, options
 from tornado.web import url
-from pymongo import MongoClient
 from motor import MotorClient
-
 from handlers import *
 
 define("port", default=2333, type=int)
@@ -27,11 +24,12 @@ class Application(tornado.web.Application):
             url(r'/post/?([0-9]+)?', post.PostHandler, name='post'),
             url(r'/tags/(.*)', tags.TagsHandler, name='tags'),
             url(r'/comments', comments.CommentsHandler, name='comments'),
-            url(r'/article/([0-9]+\.?[0-9]*)(/[a-z]+)?', article.ArticledHandler, name='article'),
-            url(r'/testjni', testjni.TestJniHandler, name='testjni'),
+            url(r'/timeline', timeline.TimelineHandler, name='timeline'),
+            url(r'/article/([0-9]+\.?[0-9]*)(/[a-z]+)?', article.ArticleHandler, name='article'),
             url(r'/bower_components/(.*)', tornado.web.StaticFileHandler, {'path': 'bower_components'}),
             url(r'/static/(.*)', tornado.web.StaticFileHandler, {'path': 'static'}),
             url(r'/favicon.ico', tornado.web.RedirectHandler, {'url': '/static/image/favicon.ico'}),
+            # url(r'/d', dog_monitor.DogMonitorHandler, name='dog'),
             url(r'.*', file_not_found.FileNotFoundHandler, name='404')
 
         ]
@@ -59,6 +57,7 @@ def main():
     print options.port
 
     tornado.ioloop.IOLoop.instance().start()
+
 
 if __name__ == '__main__':
     main()
