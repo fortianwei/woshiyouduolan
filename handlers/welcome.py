@@ -1,6 +1,5 @@
 # coding=utf-8
 from base import BaseHandler
-import pymongo
 import tornado.gen
 import markdown2
 
@@ -18,9 +17,9 @@ class WelcomeHandler(BaseHandler):
         print 'page is ', page
         collection_articles = self.db.articles
         # 分页
-        cursor = collection_articles.find().sort('time', pymongo.DESCENDING).\
+        cursor = collection_articles.find().sort('time', -1).\
             skip(self.page_size * (page - 1)).limit(self.page_size)
-        cursor2 = collection_articles.find().sort('time', pymongo.DESCENDING).limit(self.side_articles_num)
+        cursor2 = collection_articles.find().sort('time', -1).limit(self.side_articles_num)
         articles = yield cursor.to_list(length=self.page_size)
         for article in articles:
             article['content'] = markdown2.markdown(article['content'][0:200], extras=['fenced-code-blocks'])

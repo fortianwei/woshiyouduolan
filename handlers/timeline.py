@@ -8,7 +8,7 @@ class TimelineHandler(BaseHandler):
     def get(self):
 
         timelines = self.db.timelines
-        pp = yield timelines.find().to_list(10000)
+        pp = yield timelines.find().sort('time', -1).to_list(10000)
         self.render('timeline.html', pp=pp)
 
     def post(self):
