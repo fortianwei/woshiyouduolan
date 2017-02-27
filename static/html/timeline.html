@@ -10,13 +10,12 @@
     <div class="timeline-boxx">
 
         <div class="timeline timeline-line-dotted">
-            {% for p in pp %}
-            {% if p['time'] %}
+            {% for day in pp.keys() %}
             <span class="timeline-label">
-                <span class="label label-primary">{{p['time'][:10]}}</span>
+                <span class="label label-primary">{{day}}</span>
             </span>
-            {% end %}
 
+            {% for p in pp[day] %}
             <div class="timeline-item">
                 <div class="timeline-point timeline-point-success">
                     <i class="fa fa-life-ring"></i>
@@ -39,6 +38,8 @@
                     </div>
                 </div>
             </div>
+
+            {% end %}
             {% end %}
         </div>
     </div>
